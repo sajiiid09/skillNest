@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 class ApiConstants {
-  static const String baseUrl = 'http://192.168.0.108:8000/api/v1';
+  static const String baseUrl = 'http://10.0.0.200:8000/api/v1';
 
   // Auth
   static const String login = '$baseUrl/auth/login';
