@@ -190,7 +190,7 @@ class _LoginPageState extends State<LoginPage> {
 
                   // Role Selector
                   DropdownButtonFormField<UserRole>(
-                    value: _selectedRole,
+                    initialValue: _selectedRole,
                     decoration: InputDecoration(
                       labelText: 'Login as',
                       prefixIcon: const Icon(Icons.person_outline),

@@ -22,7 +22,6 @@ class _TaskDetailsPageState extends State<TaskDetailsPage> {
   File? _selectedFile;
   bool _isLoading = false;
   bool _isSubmitting = false;
-  final TextEditingController _progressController = TextEditingController();
   final TextEditingController _timeSpentController = TextEditingController();
 
   @override
@@ -34,7 +33,6 @@ class _TaskDetailsPageState extends State<TaskDetailsPage> {
 
   @override
   void dispose() {
-    _progressController.dispose();
     _timeSpentController.dispose();
     super.dispose();
   }
@@ -53,6 +51,7 @@ class _TaskDetailsPageState extends State<TaskDetailsPage> {
       print('========== TASK DETAILS API RESPONSE ==========');
       print(JsonEncoder.withIndent('  ').convert(response));
       print('=============================================\n');
+      if (!mounted) return;
 
       setState(() {
         _taskDetails = response;
@@ -82,14 +81,15 @@ class _TaskDetailsPageState extends State<TaskDetailsPage> {
       );
 
       if (result != null) {
-        _selectedFile = File(result.files.single.path!);
+        final selectedFile = File(result.files.single.path!);
 
         print('========== FILE SELECTED ==========');
-        print('File Name: ${_selectedFile!.path.split('/').last}');
-        print('File Size: ${_selectedFile!.lengthSync()} bytes');
+        print('File Name: ${selectedFile.path.split('/').last}');
+        print('File Size: ${selectedFile.lengthSync()} bytes');
         print('===================================\n');
+        if (!mounted) return;
 
-        setState(() {});
+        setState(() => _selectedFile = selectedFile);
 
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
@@ -106,6 +106,7 @@ class _TaskDetailsPageState extends State<TaskDetailsPage> {
       print('========== ERROR PICKING FILE ==========');
       print('Error: $e');
       print('=======================================\n');
+      if (!mounted) return;
 
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -153,14 +154,13 @@ class _TaskDetailsPageState extends State<TaskDetailsPage> {
         timeSpent,
         _selectedFile!,
       );
+      if (!mounted) return;
 
       print('========== TASK SUBMISSION RESPONSE ==========');
       print('Success: $success');
       print('===========================================\n');
 
       if (success) {
-        if (!mounted) return;
-
         print('========== TASK SUBMITTED SUCCESSFULLY ==========');
         print('Task ID: ${_taskDetails['id']}');
         print('Status updated to: SUBMITTED');
@@ -194,6 +194,7 @@ class _TaskDetailsPageState extends State<TaskDetailsPage> {
       print('========== ERROR SUBMITTING TASK ==========');
       print('Error: $e');
       print('========================================\n');
+      if (!mounted) return;
 
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
@@ -202,48 +203,11 @@ class _TaskDetailsPageState extends State<TaskDetailsPage> {
         ),
       );
     } finally {
-      setState(() => _isSubmitting = false);
+      if (mounted) {
+        setState(() => _isSubmitting = false);
+      }
     }
   }
-
-  Future<void> _updateProgress() async {
-    if (_progressController.text.isEmpty) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Please enter progress details'),
-          backgroundColor: AppColors.statusWarning,
-        ),
-      );
-      return;
-    }
-
-    try {
-      print('========== UPDATING TASK PROGRESS ==========');
-      print('Task ID: ${_taskDetails['id']}');
-      print('Progress: ${_progressController.text}');
-      print('===========================================\n');
-
-      // Here you can add API call to update progress
-      // For now, just show a message
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Progress updated!'),
-          backgroundColor: AppColors.statusSuccess,
-        ),
-      );
-
-      _progressController.clear();
-    } catch (e) {
-      print('========== ERROR UPDATING PROGRESS ==========');
-      print('Error: $e');
-      print('=========================================\n');
-
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error: $e')),
-      );
-    }
-  }
-
 
   @override
   Widget build(BuildContext context) {
@@ -289,7 +253,7 @@ class _TaskDetailsPageState extends State<TaskDetailsPage> {
                                 vertical: 6,
                               ),
                               decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(0.2),
+                                color: Colors.white.withValues(alpha: 0.2),
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               child: Text(
@@ -325,8 +289,9 @@ class _TaskDetailsPageState extends State<TaskDetailsPage> {
                               builder: (context, constraints) {
                                 final isNarrow = constraints.maxWidth < 360;
                                 return Flex(
-                                  direction:
-                                      isNarrow ? Axis.vertical : Axis.horizontal,
+                                  direction: isNarrow
+                                      ? Axis.vertical
+                                      : Axis.horizontal,
                                   children: [
                                     Expanded(
                                       child: _buildInfoCard(
@@ -398,7 +363,8 @@ class _TaskDetailsPageState extends State<TaskDetailsPage> {
                                   child: InkWell(
                                     onTap: _pickFile,
                                     child: Padding(
-                                      padding: EdgeInsets.all(size.width * 0.04),
+                                      padding:
+                                          EdgeInsets.all(size.width * 0.04),
                                       child: Row(
                                         children: [
                                           Icon(
@@ -556,6 +522,7 @@ class _TaskDetailsPageState extends State<TaskDetailsPage> {
       ),
     );
   }
+
   Widget _buildInfoSection(String title, String content, Size size) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -590,10 +557,10 @@ class _TaskDetailsPageState extends State<TaskDetailsPage> {
     return Container(
       padding: EdgeInsets.all(size.width * 0.04),
       decoration: BoxDecoration(
-        color: AppColors.primary.withOpacity(0.1),
+        color: AppColors.primary.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
-          color: AppColors.primary.withOpacity(0.3),
+          color: AppColors.primary.withValues(alpha: 0.3),
         ),
       ),
       child: Column(

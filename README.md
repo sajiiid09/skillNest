@@ -1,16 +1,99 @@
-# paid_task
+# paid_task (Flutter App)
 
-A new Flutter project.
+Step-by-step guide to run the project locally.
 
-## Getting Started
+## 1. Prerequisites
 
-This project is a starting point for a Flutter application.
+Install these first:
 
-A few resources to get you started if this is your first Flutter project:
+- Flutter SDK (tested with Flutter `3.41.4`, Dart `3.11.1`)
+- Android Studio (for Android SDK/emulator) and/or Xcode (for iOS Simulator on macOS)
+- Git
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Verify setup:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+flutter doctor
+```
+
+Fix anything marked as required before continuing.
+
+## 2. Clone and open the project
+
+```bash
+git clone <your-repo-url>
+cd task-platform-app
+```
+
+## 3. Install dependencies
+
+```bash
+flutter pub get
+```
+
+## 4. Configure backend API URL (important)
+
+This app calls backend endpoints from:
+
+- `lib/utils/constants.dart`
+- `ApiConstants.baseUrl`
+
+Current value:
+
+```dart
+static const String baseUrl = 'http://192.168.0.108:8000/api/v1';
+```
+
+Change this to your local backend URL if needed.
+
+Common cases:
+
+- Android emulator: `http://10.0.2.2:8000/api/v1`
+- iOS simulator: `http://127.0.0.1:8000/api/v1`
+- Physical device: `http://<YOUR_COMPUTER_LAN_IP>:8000/api/v1`
+
+## 5. Start your backend server
+
+Run your API server so it is reachable at the `baseUrl` you set above.
+
+The app will not work correctly without a running backend.
+
+## 6. Run the Flutter app
+
+List devices:
+
+```bash
+flutter devices
+```
+
+Run app:
+
+```bash
+flutter run
+```
+
+Run on a specific device:
+
+```bash
+flutter run -d <device_id>
+```
+
+## 7. Verify code health
+
+Run analyzer:
+
+```bash
+flutter analyze
+```
+
+Run tests:
+
+```bash
+flutter test
+```
+
+## 8. Useful troubleshooting
+
+- If dependencies fail: `flutter clean && flutter pub get`
+- If device not detected: re-run `flutter doctor` and fix toolchain issues
+- If API calls fail: confirm `baseUrl`, backend status, and firewall/network access
