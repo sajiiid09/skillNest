@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../services/api_service.dart';
 import '../services/auth_service.dart';
 import '../utils/constants.dart';
+import '../widgets/fade_slide_in.dart';
 import 'login_page.dart';
 
 class AdminHome extends StatefulWidget {
@@ -48,7 +49,7 @@ class _AdminHomeState extends State<AdminHome> {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Color(0xffe1d4d4), // Fixed: Added closing parenthesis
+      backgroundColor: AppColors.background,
       body: SafeArea(
         child: Column(
           children: [
@@ -56,15 +57,19 @@ class _AdminHomeState extends State<AdminHome> {
             Container(
               padding: EdgeInsets.all(size.width * 0.05),
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Color(0xff0b296c),
-                    Color(0xff0c3288),
-                  ],
+                gradient: const LinearGradient(
+                  colors: AppColors.headerGradient,
                 ),
                 borderRadius: const BorderRadius.vertical(
                   bottom: Radius.circular(30),
                 ),
+                boxShadow: [
+                  BoxShadow(
+                    color: AppColors.withAlpha(AppColors.primary, 0.2),
+                    blurRadius: 10,
+                    offset: const Offset(0, 5),
+                  ),
+                ],
               ),
               child: Row(
                 children: [
@@ -110,11 +115,15 @@ class _AdminHomeState extends State<AdminHome> {
 
             // Stats
             Expanded(
-              child: _isLoading
-                  ? const Center(child: CircularProgressIndicator())
-                  : RefreshIndicator(
-                      onRefresh: _loadData,
-                      child: SingleChildScrollView(
+              child: AnimatedSwitcher(
+                duration: const Duration(milliseconds: 260),
+                child: _isLoading
+                    ? const Center(child: CircularProgressIndicator())
+                    : FadeSlideIn(
+                        key: const ValueKey('admin-content'),
+                        child: RefreshIndicator(
+                            onRefresh: _loadData,
+                            child: SingleChildScrollView(
                         physics: const AlwaysScrollableScrollPhysics(),
                         padding: EdgeInsets.all(size.width * 0.05),
                         child: Column(
@@ -166,7 +175,7 @@ class _AdminHomeState extends State<AdminHome> {
                                     _stats?['total_projects']?.toString() ??
                                         '0',
                                     Icons.work,
-                                    Colors.orange,
+                                    AppColors.statusWarning,
                                     size,
                                   ),
                                 ),
@@ -176,7 +185,7 @@ class _AdminHomeState extends State<AdminHome> {
                                     'Total Tasks',
                                     _stats?['total_tasks']?.toString() ?? '0',
                                     Icons.task,
-                                    Colors.purple,
+                                    AppColors.statusInfo,
                                     size,
                                   ),
                                 ),
@@ -200,7 +209,7 @@ class _AdminHomeState extends State<AdminHome> {
                               'To Do',
                               _stats?['tasks_todo']?.toString() ?? '0',
                               Icons.pending_actions,
-                              Colors.grey,
+                              AppColors.statusNeutral,
                               size,
                             ),
                             SizedBox(height: size.height * 0.015),
@@ -208,7 +217,7 @@ class _AdminHomeState extends State<AdminHome> {
                               'In Progress',
                               _stats?['tasks_in_progress']?.toString() ?? '0',
                               Icons.autorenew,
-                              Colors.blue,
+                              AppColors.statusInfo,
                               size,
                             ),
                             SizedBox(height: size.height * 0.015),
@@ -216,7 +225,7 @@ class _AdminHomeState extends State<AdminHome> {
                               'Submitted',
                               _stats?['tasks_submitted']?.toString() ?? '0',
                               Icons.upload_file,
-                              Colors.orange,
+                              AppColors.statusWarning,
                               size,
                             ),
                             SizedBox(height: size.height * 0.015),
@@ -243,7 +252,7 @@ class _AdminHomeState extends State<AdminHome> {
                                   gradient: LinearGradient(
                                     colors: [
                                       AppColors.primary,
-                                      AppColors.primary.withOpacity(0.7),
+                                      AppColors.withAlpha(AppColors.primary, 0.82),
                                     ],
                                   ),
                                   borderRadius: BorderRadius.circular(15),
@@ -325,6 +334,8 @@ class _AdminHomeState extends State<AdminHome> {
                             ),
                           ],
                         ),
+                      ),
+                          ),
                       ),
                     ),
             ),

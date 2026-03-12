@@ -6,6 +6,7 @@ import 'package:path_provider/path_provider.dart';
 
 import '../services/api_service.dart';
 import '../utils/constants.dart';
+import '../widgets/fade_slide_in.dart';
 
 class ProjectProgressPage extends StatefulWidget {
   final Map<String, dynamic> project;
@@ -79,7 +80,7 @@ class _ProjectProgressPageState extends State<ProjectProgressPage> {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Payment successful!'),
-            backgroundColor: Colors.green,
+            backgroundColor: AppColors.statusSuccess,
           ),
         );
 
@@ -90,7 +91,7 @@ class _ProjectProgressPageState extends State<ProjectProgressPage> {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Payment failed'),
-            backgroundColor: Colors.red,
+            backgroundColor: AppColors.statusError,
           ),
         );
       }
@@ -103,7 +104,7 @@ class _ProjectProgressPageState extends State<ProjectProgressPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Error: $e'),
-          backgroundColor: Colors.red,
+          backgroundColor: AppColors.statusError,
         ),
       );
     } finally {
@@ -149,7 +150,7 @@ class _ProjectProgressPageState extends State<ProjectProgressPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Downloaded: $fileName'),
-          backgroundColor: Colors.green,
+          backgroundColor: AppColors.statusSuccess,
           duration: const Duration(seconds: 3),
         ),
       );
@@ -162,7 +163,7 @@ class _ProjectProgressPageState extends State<ProjectProgressPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Download failed: $e'),
-          backgroundColor: Colors.red,
+          backgroundColor: AppColors.statusError,
         ),
       );
     } finally {
@@ -173,56 +174,54 @@ class _ProjectProgressPageState extends State<ProjectProgressPage> {
     }
   }
 
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppColors.primary,
         title: Text(_projectDetails['title'] ?? 'Project'),
-        elevation: 0,
       ),
-      body: _isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : SingleChildScrollView(
-              child: Column(
-                children: [
-                  // Project Header
-                  Container(
-                    width: double.infinity,
-                    padding: EdgeInsets.all(size.width * 0.05),
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          AppColors.primary,
-                          AppColors.primary.withOpacity(0.8)
-                        ],
-                      ),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          _projectDetails['title'] ?? 'Untitled Project',
-                          style: TextStyle(
-                            fontSize: size.width * 0.06,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
+      body: AnimatedSwitcher(
+        duration: const Duration(milliseconds: 260),
+        child: _isLoading
+            ? const Center(child: CircularProgressIndicator())
+            : FadeSlideIn(
+                key: const ValueKey('project-progress-content'),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      // Project Header
+                      Container(
+                        width: double.infinity,
+                        padding: EdgeInsets.all(size.width * 0.05),
+                        decoration: const BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: AppColors.headerGradient,
                           ),
                         ),
-                        SizedBox(height: size.height * 0.01),
-                        Text(
-                          _projectDetails['description'] ?? 'No description',
-                          style: TextStyle(
-                            fontSize: size.width * 0.035,
-                            color: Colors.white.withOpacity(0.9),
-                          ),
-                          maxLines: 3,
-                        ),
-                        SizedBox(height: size.height * 0.02),
-                        Row(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
+                            Text(
+                              _projectDetails['title'] ?? 'Untitled Project',
+                              style: TextStyle(
+                                fontSize: size.width * 0.06,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                            SizedBox(height: size.height * 0.01),
+                            Text(
+                              _projectDetails['description'] ?? 'No description',
+                              style: TextStyle(
+                                fontSize: size.width * 0.035,
+                                color: Colors.white.withOpacity(0.9),
+                              ),
+                              maxLines: 3,
+                            ),
+                            SizedBox(height: size.height * 0.02),
                             Container(
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 12,
@@ -243,71 +242,80 @@ class _ProjectProgressPageState extends State<ProjectProgressPage> {
                             ),
                           ],
                         ),
-                      ],
-                    ),
-                  ),
+                      ),
 
-                  // Budget Info
-                  Padding(
-                    padding: EdgeInsets.all(size.width * 0.05),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: _buildInfoCard(
-                            'Budget',
-                            '\$${_projectDetails['budget']?.toStringAsFixed(2) ?? '0'}',
-                            Icons.attach_money,
-                            size,
-                          ),
+                      // Budget Info
+                      Padding(
+                        padding: EdgeInsets.all(size.width * 0.05),
+                        child: LayoutBuilder(
+                          builder: (context, constraints) {
+                            final isNarrow = constraints.maxWidth < 360;
+                            return Flex(
+                              direction:
+                                  isNarrow ? Axis.vertical : Axis.horizontal,
+                              children: [
+                                Expanded(
+                                  child: _buildInfoCard(
+                                    'Budget',
+                                    '\$${_projectDetails['budget']?.toStringAsFixed(2) ?? '0'}',
+                                    Icons.attach_money,
+                                    size,
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: isNarrow ? 0 : size.width * 0.03,
+                                  height: isNarrow ? size.height * 0.015 : 0,
+                                ),
+                                Expanded(
+                                  child: _buildInfoCard(
+                                    'Status',
+                                    'Running',
+                                    Icons.hourglass_bottom,
+                                    size,
+                                  ),
+                                ),
+                              ],
+                            );
+                          },
                         ),
-                        SizedBox(width: size.width * 0.03),
-                        Expanded(
-                          child: _buildInfoCard(
-                            'Status',
-                            'Running',
-                            Icons.hourglass_bottom,
-                            size,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                      ),
 
-                  // Tasks Section
-                  Padding(
-                    padding: EdgeInsets.all(size.width * 0.05),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Work Progress',
-                          style: TextStyle(
-                            fontSize: size.width * 0.05,
-                            fontWeight: FontWeight.bold,
-                            color: AppColors.textPrimary,
-                          ),
-                        ),
-                        SizedBox(height: size.height * 0.02),
-                        if (_tasks.isEmpty)
-                          Center(
-                            child: Padding(
-                              padding: EdgeInsets.all(size.width * 0.05),
-                              child: const Text('No tasks assigned'),
+                      // Tasks Section
+                      Padding(
+                        padding: EdgeInsets.all(size.width * 0.05),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Work Progress',
+                              style: TextStyle(
+                                fontSize: size.width * 0.05,
+                                fontWeight: FontWeight.bold,
+                                color: AppColors.textPrimary,
+                              ),
                             ),
-                          )
-                        else
-                          ..._tasks.map((task) {
-                            return _buildTaskProgressCard(task, size);
-                          }).toList(),
-                      ],
-                    ),
+                            SizedBox(height: size.height * 0.02),
+                            if (_tasks.isEmpty)
+                              Center(
+                                child: Padding(
+                                  padding: EdgeInsets.all(size.width * 0.05),
+                                  child: const Text('No tasks assigned'),
+                                ),
+                              )
+                            else
+                              ..._tasks.map((task) {
+                                return _buildTaskProgressCard(task, size);
+                              }).toList(),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
-            ),
+      ),
     );
   }
-
   Widget _buildInfoCard(
     String title,
     String value,
@@ -591,17 +599,17 @@ class _ProjectProgressPageState extends State<ProjectProgressPage> {
               Container(
                 padding: EdgeInsets.all(size.width * 0.03),
                 decoration: BoxDecoration(
-                  color: Colors.orange.withOpacity(0.1),
+                  color: AppColors.withAlpha(AppColors.statusWarning, 0.12),
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(
-                    color: Colors.orange.withOpacity(0.3),
+                    color: AppColors.withAlpha(AppColors.statusWarning, 0.32),
                   ),
                 ),
                 child: Row(
                   children: [
                     Icon(
                       Icons.info,
-                      color: Colors.orange,
+                      color: AppColors.statusWarning,
                       size: size.width * 0.05,
                     ),
                     SizedBox(width: size.width * 0.02),
@@ -611,7 +619,7 @@ class _ProjectProgressPageState extends State<ProjectProgressPage> {
                         style: TextStyle(
                           fontSize: size.width * 0.035,
                           fontWeight: FontWeight.w500,
-                          color: Colors.orange,
+                          color: AppColors.statusWarning,
                         ),
                       ),
                     ),
@@ -638,17 +646,17 @@ class _ProjectProgressPageState extends State<ProjectProgressPage> {
               Container(
                 padding: EdgeInsets.all(size.width * 0.03),
                 decoration: BoxDecoration(
-                  color: Colors.blue.withOpacity(0.1),
+                  color: AppColors.withAlpha(AppColors.statusInfo, 0.12),
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(
-                    color: Colors.blue.withOpacity(0.3),
+                    color: AppColors.withAlpha(AppColors.statusInfo, 0.32),
                   ),
                 ),
                 child: Row(
                   children: [
                     Icon(
                       Icons.hourglass_bottom,
-                      color: Colors.blue,
+                      color: AppColors.statusInfo,
                       size: size.width * 0.05,
                     ),
                     SizedBox(width: size.width * 0.02),
@@ -658,7 +666,7 @@ class _ProjectProgressPageState extends State<ProjectProgressPage> {
                         style: TextStyle(
                           fontSize: size.width * 0.035,
                           fontWeight: FontWeight.w500,
-                          color: Colors.blue,
+                          color: AppColors.statusInfo,
                         ),
                       ),
                     ),
@@ -675,15 +683,15 @@ class _ProjectProgressPageState extends State<ProjectProgressPage> {
   Color _getStatusColor(String status) {
     switch (status.toLowerCase()) {
       case 'todo':
-        return Colors.grey;
+        return AppColors.statusNeutral;
       case 'in_progress':
-        return Colors.blue;
+        return AppColors.statusInfo;
       case 'submitted':
-        return Colors.orange;
+        return AppColors.statusWarning;
       case 'paid':
-        return AppColors.secondary;
+        return AppColors.statusSuccess;
       default:
-        return Colors.grey;
+        return AppColors.statusNeutral;
     }
   }
 }

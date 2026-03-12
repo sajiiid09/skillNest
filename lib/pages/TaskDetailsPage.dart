@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 import '../services/api_service.dart';
 import '../utils/constants.dart';
+import '../widgets/fade_slide_in.dart';
 
 class TaskDetailsPage extends StatefulWidget {
   final Map<String, dynamic> task;
@@ -19,7 +20,6 @@ class TaskDetailsPage extends StatefulWidget {
 class _TaskDetailsPageState extends State<TaskDetailsPage> {
   late Map<String, dynamic> _taskDetails;
   File? _selectedFile;
-  double _timeSpent = 0;
   bool _isLoading = false;
   bool _isSubmitting = false;
   final TextEditingController _progressController = TextEditingController();
@@ -96,7 +96,7 @@ class _TaskDetailsPageState extends State<TaskDetailsPage> {
             content: Text(
               'File selected: ${_selectedFile!.path.split('/').last}',
             ),
-            backgroundColor: Colors.green,
+            backgroundColor: AppColors.statusSuccess,
           ),
         );
       } else {
@@ -110,7 +110,7 @@ class _TaskDetailsPageState extends State<TaskDetailsPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Error selecting file: $e'),
-          backgroundColor: Colors.red,
+          backgroundColor: AppColors.statusError,
         ),
       );
     }
@@ -121,7 +121,7 @@ class _TaskDetailsPageState extends State<TaskDetailsPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Please select a file to submit'),
-          backgroundColor: Colors.orange,
+          backgroundColor: AppColors.statusWarning,
         ),
       );
       return;
@@ -131,7 +131,7 @@ class _TaskDetailsPageState extends State<TaskDetailsPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Please enter time spent'),
-          backgroundColor: Colors.orange,
+          backgroundColor: AppColors.statusWarning,
         ),
       );
       return;
@@ -169,7 +169,7 @@ class _TaskDetailsPageState extends State<TaskDetailsPage> {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Task submitted successfully!'),
-            backgroundColor: Colors.green,
+            backgroundColor: AppColors.statusSuccess,
           ),
         );
 
@@ -186,7 +186,7 @@ class _TaskDetailsPageState extends State<TaskDetailsPage> {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Failed to submit task'),
-            backgroundColor: Colors.red,
+            backgroundColor: AppColors.statusError,
           ),
         );
       }
@@ -198,7 +198,7 @@ class _TaskDetailsPageState extends State<TaskDetailsPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Error submitting task: $e'),
-          backgroundColor: Colors.red,
+          backgroundColor: AppColors.statusError,
         ),
       );
     } finally {
@@ -211,7 +211,7 @@ class _TaskDetailsPageState extends State<TaskDetailsPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Please enter progress details'),
-          backgroundColor: Colors.orange,
+          backgroundColor: AppColors.statusWarning,
         ),
       );
       return;
@@ -228,7 +228,7 @@ class _TaskDetailsPageState extends State<TaskDetailsPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Progress updated!'),
-          backgroundColor: Colors.green,
+          backgroundColor: AppColors.statusSuccess,
         ),
       );
 
@@ -244,304 +244,318 @@ class _TaskDetailsPageState extends State<TaskDetailsPage> {
     }
   }
 
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppColors.primary,
         title: const Text('Task Details'),
-        elevation: 0,
       ),
-      body: _isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : SingleChildScrollView(
-              child: Column(
-                children: [
-                  // Task Header
-                  Container(
-                    width: double.infinity,
-                    padding: EdgeInsets.all(size.width * 0.05),
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          AppColors.primary,
-                          AppColors.primary.withOpacity(0.8)
-                        ],
-                      ),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          _taskDetails['title'] ?? 'Untitled Task',
-                          style: TextStyle(
-                            fontSize: size.width * 0.06,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
+      body: AnimatedSwitcher(
+        duration: const Duration(milliseconds: 260),
+        child: _isLoading
+            ? const Center(child: CircularProgressIndicator())
+            : FadeSlideIn(
+                key: const ValueKey('task-details-content'),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      // Task Header
+                      Container(
+                        width: double.infinity,
+                        padding: EdgeInsets.all(size.width * 0.05),
+                        decoration: const BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: AppColors.headerGradient,
                           ),
                         ),
-                        SizedBox(height: size.height * 0.01),
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            horizontal: 12,
-                            vertical: 6,
-                          ),
-                          decoration: BoxDecoration(
-                            color: Colors.white.withOpacity(0.2),
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          child: Text(
-                            (_taskDetails['status'] ?? 'UNKNOWN')
-                                .toString()
-                                .toUpperCase(),
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: size.width * 0.035,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-
-                  // Task Information
-                  Padding(
-                    padding: EdgeInsets.all(size.width * 0.05),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        // Description Section
-                        _buildInfoSection(
-                          'Description',
-                          _taskDetails['description'] ?? 'No description',
-                          size,
-                        ),
-                        SizedBox(height: size.height * 0.02),
-
-                        // Project & Developer Info
-                        Row(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Expanded(
-                              child: _buildInfoCard(
-                                'Project ID',
-                                '${_taskDetails['project_id']}',
-                                Icons.assignment,
-                                size,
+                            Text(
+                              _taskDetails['title'] ?? 'Untitled Task',
+                              style: TextStyle(
+                                fontSize: size.width * 0.06,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
                               ),
                             ),
-                            SizedBox(width: size.width * 0.03),
-                            Expanded(
-                              child: _buildInfoCard(
-                                'Hourly Rate',
-                                '\$${_taskDetails['hourly_rate']}/hr',
-                                Icons.attach_money,
-                                size,
+                            SizedBox(height: size.height * 0.01),
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 12,
+                                vertical: 6,
+                              ),
+                              decoration: BoxDecoration(
+                                color: Colors.white.withOpacity(0.2),
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Text(
+                                (_taskDetails['status'] ?? 'UNKNOWN')
+                                    .toString()
+                                    .toUpperCase(),
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: size.width * 0.035,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(height: size.height * 0.02),
+                      ),
 
-                        // Progress Update Section
-                        if (_taskDetails['status'] != 'paid') ...[
-                          // File Submission Section
-                          Text(
-                            'Submit Work',
-                            style: TextStyle(
-                              fontSize: size.width * 0.045,
-                              fontWeight: FontWeight.bold,
-                              color: AppColors.textPrimary,
+                      // Task Information
+                      Padding(
+                        padding: EdgeInsets.all(size.width * 0.05),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            _buildInfoSection(
+                              'Description',
+                              _taskDetails['description'] ?? 'No description',
+                              size,
                             ),
-                          ),
-                          SizedBox(height: size.height * 0.01),
-                          // Time Spent Input
-                          TextField(
-                            controller: _timeSpentController,
-                            keyboardType: TextInputType.number,
-                            decoration: InputDecoration(
-                              hintText: 'Enter hours spent on this task',
-                              prefixIcon: const Icon(Icons.access_time),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              contentPadding: const EdgeInsets.symmetric(
-                                horizontal: 12,
-                                vertical: 15,
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: size.height * 0.02),
+                            SizedBox(height: size.height * 0.02),
 
-                          // File Selection
-                          Container(
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: _selectedFile != null
-                                    ? AppColors.secondary
-                                    : Colors.grey,
-                                width: 2,
-                              ),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Material(
-                              color: Colors.transparent,
-                              child: InkWell(
-                                onTap: _pickFile,
-                                child: Padding(
-                                  padding: EdgeInsets.all(size.width * 0.04),
-                                  child: Row(
-                                    children: [
-                                      Icon(
-                                        Icons.cloud_upload_outlined,
-                                        color: _selectedFile != null
-                                            ? AppColors.secondary
-                                            : Colors.grey,
-                                        size: size.width * 0.08,
-                                      ),
-                                      SizedBox(width: size.width * 0.03),
-                                      Expanded(
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              _selectedFile != null
-                                                  ? 'File Selected'
-                                                  : 'Select ZIP File',
-                                              style: TextStyle(
-                                                fontSize: size.width * 0.04,
-                                                fontWeight: FontWeight.w600,
-                                                color: _selectedFile != null
-                                                    ? AppColors.secondary
-                                                    : Colors.grey,
-                                              ),
-                                            ),
-                                            if (_selectedFile != null)
-                                              Text(
-                                                _selectedFile!.path
-                                                    .split('/')
-                                                    .last,
-                                                style: TextStyle(
-                                                  fontSize: size.width * 0.03,
-                                                  color: Colors.grey,
-                                                ),
-                                                maxLines: 1,
-                                                overflow: TextOverflow.ellipsis,
-                                              )
-                                            else
-                                              Text(
-                                                'Tap to choose a ZIP file',
-                                                style: TextStyle(
-                                                  fontSize: size.width * 0.03,
-                                                  color: Colors.grey,
-                                                ),
-                                              ),
-                                          ],
-                                        ),
-                                      ),
-                                      Icon(
-                                        Icons.chevron_right,
-                                        color: _selectedFile != null
-                                            ? AppColors.secondary
-                                            : Colors.grey,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: size.height * 0.02),
-
-                          // Submit Button
-                          SizedBox(
-                            width: double.infinity,
-                            child: ElevatedButton(
-                              onPressed: _isSubmitting ? null : _submitTask,
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: AppColors.secondary,
-                                padding: EdgeInsets.symmetric(vertical: 15),
-                                disabledBackgroundColor: Colors.grey,
-                              ),
-                              child: _isSubmitting
-                                  ? SizedBox(
-                                      height: 20,
-                                      width: 20,
-                                      child: const CircularProgressIndicator(
-                                        valueColor:
-                                            AlwaysStoppedAnimation<Color>(
-                                          Colors.white,
-                                        ),
-                                      ),
-                                    )
-                                  : const Text(
-                                      'Submit Task',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w600,
+                            // Project & Rate
+                            LayoutBuilder(
+                              builder: (context, constraints) {
+                                final isNarrow = constraints.maxWidth < 360;
+                                return Flex(
+                                  direction:
+                                      isNarrow ? Axis.vertical : Axis.horizontal,
+                                  children: [
+                                    Expanded(
+                                      child: _buildInfoCard(
+                                        'Project ID',
+                                        '${_taskDetails['project_id']}',
+                                        Icons.assignment,
+                                        size,
                                       ),
                                     ),
+                                    SizedBox(
+                                      width: isNarrow ? 0 : size.width * 0.03,
+                                      height:
+                                          isNarrow ? size.height * 0.015 : 0,
+                                    ),
+                                    Expanded(
+                                      child: _buildInfoCard(
+                                        'Hourly Rate',
+                                        '\$${_taskDetails['hourly_rate']}/hr',
+                                        Icons.attach_money,
+                                        size,
+                                      ),
+                                    ),
+                                  ],
+                                );
+                              },
                             ),
-                          ),
-                        ] else ...[
-                          // Completed/Paid state
-                          Container(
-                            padding: EdgeInsets.all(size.width * 0.04),
-                            decoration: BoxDecoration(
-                              color: AppColors.secondary.withOpacity(0.1),
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(
-                                color: AppColors.secondary,
-                              ),
-                            ),
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.check_circle,
-                                  color: AppColors.secondary,
-                                  size: size.width * 0.08,
+                            SizedBox(height: size.height * 0.02),
+
+                            if (_taskDetails['status'] != 'paid') ...[
+                              Text(
+                                'Submit Work',
+                                style: TextStyle(
+                                  fontSize: size.width * 0.045,
+                                  fontWeight: FontWeight.bold,
+                                  color: AppColors.textPrimary,
                                 ),
-                                SizedBox(width: size.width * 0.03),
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'Task Completed',
-                                        style: TextStyle(
-                                          fontSize: size.width * 0.04,
-                                          fontWeight: FontWeight.bold,
-                                          color: AppColors.secondary,
-                                        ),
-                                      ),
-                                      Text(
-                                        'This task has been paid and completed.',
-                                        style: TextStyle(
-                                          fontSize: size.width * 0.03,
-                                          color: Colors.grey,
-                                        ),
-                                      ),
-                                    ],
+                              ),
+                              SizedBox(height: size.height * 0.01),
+                              TextField(
+                                controller: _timeSpentController,
+                                keyboardType: TextInputType.number,
+                                decoration: InputDecoration(
+                                  hintText: 'Enter hours spent on this task',
+                                  prefixIcon: const Icon(Icons.access_time),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                    horizontal: 12,
+                                    vertical: 15,
                                   ),
                                 ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ],
-                    ),
+                              ),
+                              SizedBox(height: size.height * 0.02),
+
+                              // File Selection
+                              Container(
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: _selectedFile != null
+                                        ? AppColors.secondary
+                                        : AppColors.border,
+                                    width: 2,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Material(
+                                  color: Colors.transparent,
+                                  child: InkWell(
+                                    onTap: _pickFile,
+                                    child: Padding(
+                                      padding: EdgeInsets.all(size.width * 0.04),
+                                      child: Row(
+                                        children: [
+                                          Icon(
+                                            Icons.cloud_upload_outlined,
+                                            color: _selectedFile != null
+                                                ? AppColors.secondary
+                                                : AppColors.textSecondary,
+                                            size: size.width * 0.08,
+                                          ),
+                                          SizedBox(width: size.width * 0.03),
+                                          Expanded(
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  _selectedFile != null
+                                                      ? 'File Selected'
+                                                      : 'Select ZIP File',
+                                                  style: TextStyle(
+                                                    fontSize: size.width * 0.04,
+                                                    fontWeight: FontWeight.w600,
+                                                    color: _selectedFile != null
+                                                        ? AppColors.secondary
+                                                        : AppColors.textPrimary,
+                                                  ),
+                                                ),
+                                                if (_selectedFile != null)
+                                                  Text(
+                                                    _selectedFile!.path
+                                                        .split('/')
+                                                        .last,
+                                                    style: TextStyle(
+                                                      fontSize:
+                                                          size.width * 0.03,
+                                                      color: AppColors
+                                                          .textSecondary,
+                                                    ),
+                                                    maxLines: 1,
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
+                                                  )
+                                                else
+                                                  Text(
+                                                    'Tap to choose a ZIP file',
+                                                    style: TextStyle(
+                                                      fontSize:
+                                                          size.width * 0.03,
+                                                      color: AppColors
+                                                          .textSecondary,
+                                                    ),
+                                                  ),
+                                              ],
+                                            ),
+                                          ),
+                                          Icon(
+                                            Icons.chevron_right,
+                                            color: _selectedFile != null
+                                                ? AppColors.secondary
+                                                : AppColors.textSecondary,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: size.height * 0.02),
+
+                              SizedBox(
+                                width: double.infinity,
+                                child: ElevatedButton(
+                                  onPressed: _isSubmitting ? null : _submitTask,
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: AppColors.secondary,
+                                    padding: EdgeInsets.symmetric(vertical: 15),
+                                    disabledBackgroundColor: AppColors.border,
+                                  ),
+                                  child: _isSubmitting
+                                      ? const SizedBox(
+                                          height: 20,
+                                          width: 20,
+                                          child: CircularProgressIndicator(
+                                            valueColor:
+                                                AlwaysStoppedAnimation<Color>(
+                                              Colors.white,
+                                            ),
+                                          ),
+                                        )
+                                      : const Text(
+                                          'Submit Task',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                ),
+                              ),
+                            ] else ...[
+                              Container(
+                                padding: EdgeInsets.all(size.width * 0.04),
+                                decoration: BoxDecoration(
+                                  color: AppColors.withAlpha(
+                                    AppColors.secondary,
+                                    0.1,
+                                  ),
+                                  borderRadius: BorderRadius.circular(10),
+                                  border: Border.all(
+                                    color: AppColors.secondary,
+                                  ),
+                                ),
+                                child: Row(
+                                  children: [
+                                    Icon(
+                                      Icons.check_circle,
+                                      color: AppColors.secondary,
+                                      size: size.width * 0.08,
+                                    ),
+                                    SizedBox(width: size.width * 0.03),
+                                    Expanded(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'Task Completed',
+                                            style: TextStyle(
+                                              fontSize: size.width * 0.04,
+                                              fontWeight: FontWeight.bold,
+                                              color: AppColors.secondary,
+                                            ),
+                                          ),
+                                          Text(
+                                            'This task has been paid and completed.',
+                                            style: TextStyle(
+                                              fontSize: size.width * 0.03,
+                                              color: AppColors.textSecondary,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
-            ),
+      ),
     );
   }
-
   Widget _buildInfoSection(String title, String content, Size size) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

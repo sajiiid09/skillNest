@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../services/api_service.dart';
 import '../utils/constants.dart';
+import '../widgets/fade_slide_in.dart';
 
 class ProjectDetailsPage extends StatefulWidget {
   final Map<String, dynamic> project;
@@ -60,7 +61,7 @@ class _ProjectDetailsPageState extends State<ProjectDetailsPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Proposal submitted successfully!'),
-          backgroundColor: AppColors.secondary,
+          backgroundColor: AppColors.statusSuccess,
         ),
       );
       Navigator.pop(context);
@@ -68,7 +69,7 @@ class _ProjectDetailsPageState extends State<ProjectDetailsPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Failed to submit proposal'),
-          backgroundColor: AppColors.accent,
+          backgroundColor: AppColors.statusError,
         ),
       );
     }
@@ -81,12 +82,12 @@ class _ProjectDetailsPageState extends State<ProjectDetailsPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Project Details'),
-        backgroundColor: AppColors.primary,
-        foregroundColor: Colors.white,
       ),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.all(size.width * 0.05),
-        child: Column(
+      body: SafeArea(
+        child: FadeSlideIn(
+          child: SingleChildScrollView(
+            padding: EdgeInsets.all(size.width * 0.05),
+            child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Project Title
@@ -136,82 +137,91 @@ class _ProjectDetailsPageState extends State<ProjectDetailsPage> {
             SizedBox(height: size.height * 0.02),
 
             // Budget & Duration
-            Row(
-              children: [
-                Expanded(
-                  child: Card(
-                    elevation: 2,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.all(size.width * 0.04),
-                      child: Column(
-                        children: [
-                          Icon(
-                            Icons.attach_money,
-                            color: AppColors.primary,
-                            size: size.width * 0.08,
+            LayoutBuilder(
+              builder: (context, constraints) {
+                final isNarrow = constraints.maxWidth < 360;
+                return Flex(
+                  direction: isNarrow ? Axis.vertical : Axis.horizontal,
+                  children: [
+                    Expanded(
+                      child: Card(
+                        elevation: 2,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.all(size.width * 0.04),
+                          child: Column(
+                            children: [
+                              Icon(
+                                Icons.attach_money,
+                                color: AppColors.primary,
+                                size: size.width * 0.08,
+                              ),
+                              SizedBox(height: size.height * 0.01),
+                              Text(
+                                '\$${widget.project['expected_hourly_rate']?.toStringAsFixed(0) ?? '0'}',
+                                style: TextStyle(
+                                  fontSize: size.width * 0.05,
+                                  fontWeight: FontWeight.bold,
+                                  color: AppColors.primary,
+                                ),
+                              ),
+                              Text(
+                                'Per Hour',
+                                style: TextStyle(
+                                  fontSize: size.width * 0.032,
+                                  color: AppColors.textSecondary,
+                                ),
+                              ),
+                            ],
                           ),
-                          SizedBox(height: size.height * 0.01),
-                          Text(
-                            '\$${widget.project['expected_hourly_rate']?.toStringAsFixed(0) ?? '0'}',
-                            style: TextStyle(
-                              fontSize: size.width * 0.05,
-                              fontWeight: FontWeight.bold,
-                              color: AppColors.primary,
-                            ),
-                          ),
-                          Text(
-                            'Per Hour',
-                            style: TextStyle(
-                              fontSize: size.width * 0.032,
-                              color: AppColors.textSecondary,
-                            ),
-                          ),
-                        ],
+                        ),
                       ),
                     ),
-                  ),
-                ),
-                SizedBox(width: size.width * 0.03),
-                Expanded(
-                  child: Card(
-                    elevation: 2,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
+                    SizedBox(
+                      width: isNarrow ? 0 : size.width * 0.03,
+                      height: isNarrow ? size.height * 0.015 : 0,
                     ),
-                    child: Padding(
-                      padding: EdgeInsets.all(size.width * 0.04),
-                      child: Column(
-                        children: [
-                          Icon(
-                            Icons.access_time,
-                            color: AppColors.secondary,
-                            size: size.width * 0.08,
+                    Expanded(
+                      child: Card(
+                        elevation: 2,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.all(size.width * 0.04),
+                          child: Column(
+                            children: [
+                              Icon(
+                                Icons.access_time,
+                                color: AppColors.secondary,
+                                size: size.width * 0.08,
+                              ),
+                              SizedBox(height: size.height * 0.01),
+                              Text(
+                                '${widget.project['expected_duration_hours']?.toStringAsFixed(0) ?? '0'}',
+                                style: TextStyle(
+                                  fontSize: size.width * 0.05,
+                                  fontWeight: FontWeight.bold,
+                                  color: AppColors.secondary,
+                                ),
+                              ),
+                              Text(
+                                'Hours',
+                                style: TextStyle(
+                                  fontSize: size.width * 0.032,
+                                  color: AppColors.textSecondary,
+                                ),
+                              ),
+                            ],
                           ),
-                          SizedBox(height: size.height * 0.01),
-                          Text(
-                            '${widget.project['expected_duration_hours']?.toStringAsFixed(0) ?? '0'}',
-                            style: TextStyle(
-                              fontSize: size.width * 0.05,
-                              fontWeight: FontWeight.bold,
-                              color: AppColors.secondary,
-                            ),
-                          ),
-                          Text(
-                            'Hours',
-                            style: TextStyle(
-                              fontSize: size.width * 0.032,
-                              color: AppColors.textSecondary,
-                            ),
-                          ),
-                        ],
+                        ),
                       ),
                     ),
-                  ),
-                ),
-              ],
+                  ],
+                );
+              },
             ),
 
             SizedBox(height: size.height * 0.02),
@@ -248,10 +258,10 @@ class _ProjectDetailsPageState extends State<ProjectDetailsPage> {
                               vertical: 8,
                             ),
                             decoration: BoxDecoration(
-                              color: AppColors.primary.withOpacity(0.1),
+                              color: AppColors.withAlpha(AppColors.primary, 0.1),
                               borderRadius: BorderRadius.circular(20),
                               border: Border.all(
-                                color: AppColors.primary.withOpacity(0.3),
+                                color: AppColors.withAlpha(AppColors.primary, 0.32),
                               ),
                             ),
                             child: Text(
@@ -291,51 +301,45 @@ class _ProjectDetailsPageState extends State<ProjectDetailsPage> {
                 labelText: 'Cover Letter *',
                 hintText:
                     'Explain why you\'re the best fit for this project...',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                filled: true,
-                fillColor: Colors.white,
               ),
             ),
 
             SizedBox(height: size.height * 0.02),
 
             // Rate and Hours
-            Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    controller: _rateController,
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                      labelText: 'Your Hourly Rate',
-                      prefixText: '\$',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
+            LayoutBuilder(
+              builder: (context, constraints) {
+                final isNarrow = constraints.maxWidth < 360;
+                return Flex(
+                  direction: isNarrow ? Axis.vertical : Axis.horizontal,
+                  children: [
+                    Expanded(
+                      child: TextField(
+                        controller: _rateController,
+                        keyboardType: TextInputType.number,
+                        decoration: const InputDecoration(
+                          labelText: 'Your Hourly Rate',
+                          prefixText: '\$',
+                        ),
                       ),
-                      filled: true,
-                      fillColor: Colors.white,
                     ),
-                  ),
-                ),
-                SizedBox(width: size.width * 0.03),
-                Expanded(
-                  child: TextField(
-                    controller: _hoursController,
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                      labelText: 'Est. Hours',
-                      suffixText: 'hrs',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(12),
+                    SizedBox(
+                      width: isNarrow ? 0 : size.width * 0.03,
+                      height: isNarrow ? size.height * 0.015 : 0,
+                    ),
+                    Expanded(
+                      child: TextField(
+                        controller: _hoursController,
+                        keyboardType: TextInputType.number,
+                        decoration: const InputDecoration(
+                          labelText: 'Est. Hours',
+                          suffixText: 'hrs',
+                        ),
                       ),
-                      filled: true,
-                      fillColor: Colors.white,
                     ),
-                  ),
-                ),
-              ],
+                  ],
+                );
+              },
             ),
 
             SizedBox(height: size.height * 0.03),
@@ -347,12 +351,9 @@ class _ProjectDetailsPageState extends State<ProjectDetailsPage> {
               child: ElevatedButton(
                 onPressed: _isSubmitting ? null : _submitProposal,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.primary,
-                  foregroundColor: Colors.white,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(AppRadii.md),
                   ),
-                  elevation: 3,
                 ),
                 child: _isSubmitting
                     ? const SizedBox(
@@ -360,7 +361,9 @@ class _ProjectDetailsPageState extends State<ProjectDetailsPage> {
                         width: 20,
                         child: CircularProgressIndicator(
                           strokeWidth: 2,
-                          valueColor: AlwaysStoppedAnimation(Colors.white),
+                          valueColor: AlwaysStoppedAnimation(
+                            AppColors.onPrimary,
+                          ),
                         ),
                       )
                     : Text(
@@ -373,6 +376,8 @@ class _ProjectDetailsPageState extends State<ProjectDetailsPage> {
               ),
             ),
           ],
+        ),
+      ),
         ),
       ),
     );

@@ -1,11 +1,11 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 import '../services/api_service.dart';
 import '../services/auth_service.dart';
 import '../utils/constants.dart';
+import '../widgets/fade_slide_in.dart';
 import 'TaskDetailsPage.dart';
 import 'login_page.dart';
 import 'project_details_page.dart';
@@ -34,15 +34,6 @@ class _DeveloperHomeState extends State<DeveloperHome>
   @override
   void initState() {
     super.initState();
-    SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(
-        statusBarColor: Colors.amberAccent,
-        statusBarIconBrightness: Brightness.dark,
-        statusBarBrightness: Brightness.light,
-        systemNavigationBarColor: Colors.white,
-        systemNavigationBarIconBrightness: Brightness.dark,
-      ),
-    );
     _tabController = TabController(length: 4, vsync: this);
     _loadData();
   }
@@ -140,18 +131,15 @@ class _DeveloperHomeState extends State<DeveloperHome>
             Container(
               padding: EdgeInsets.all(size.width * 0.05),
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    AppColors.primary,
-                    AppColors.primary.withOpacity(0.8)
-                  ],
+                gradient: const LinearGradient(
+                  colors: AppColors.headerGradient,
                 ),
                 borderRadius: const BorderRadius.vertical(
                   bottom: Radius.circular(30),
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: AppColors.primary.withOpacity(0.3),
+                    color: AppColors.withAlpha(AppColors.primary, 0.22),
                     blurRadius: 10,
                     offset: const Offset(0, 5),
                   ),
@@ -257,9 +245,10 @@ class _DeveloperHomeState extends State<DeveloperHome>
 
             // Tab Bar
             Container(
-              color: Colors.white,
+              color: AppColors.background,
               child: TabBar(
                 controller: _tabController,
+                isScrollable: size.width < 380,
                 labelColor: AppColors.primary,
                 unselectedLabelColor: AppColors.textSecondary,
                 indicatorColor: AppColors.primary,
@@ -276,17 +265,23 @@ class _DeveloperHomeState extends State<DeveloperHome>
 
             // Tab Content
             Expanded(
-              child: _isLoading
-                  ? const Center(child: CircularProgressIndicator())
-                  : TabBarView(
-                      controller: _tabController,
-                      children: [
-                        _buildAllJobsTab(),
-                        _buildAppliedJobsTab(),
-                        _buildRunningProjectsTab(),
-                        _buildCompletedJobsTab(),
-                      ],
-                    ),
+              child: AnimatedSwitcher(
+                duration: const Duration(milliseconds: 260),
+                child: _isLoading
+                    ? const Center(child: CircularProgressIndicator())
+                    : FadeSlideIn(
+                        key: const ValueKey('dev-content'),
+                        child: TabBarView(
+                          controller: _tabController,
+                          children: [
+                            _buildAllJobsTab(),
+                            _buildAppliedJobsTab(),
+                            _buildRunningProjectsTab(),
+                            _buildCompletedJobsTab(),
+                          ],
+                        ),
+                      ),
+              ),
             ),
           ],
         ),
@@ -467,9 +462,9 @@ class _DeveloperHomeState extends State<DeveloperHome>
     if (status == 'accepted') {
       statusColor = AppColors.secondary;
     } else if (status == 'rejected') {
-      statusColor = AppColors.accent;
+      statusColor = AppColors.statusError;
     } else {
-      statusColor = Colors.orange;
+      statusColor = AppColors.statusWarning;
     }
 
     return Card(
