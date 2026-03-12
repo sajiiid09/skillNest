@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import '../services/api_service.dart';
 import '../services/auth_service.dart';
 import '../utils/constants.dart';
+import '../widgets/fade_slide_in.dart';
 import 'create_project_page.dart';
 import 'login_page.dart';
 import 'project_progress_page.dart';
@@ -86,18 +87,15 @@ class _BuyerHomeState extends State<BuyerHome> {
             Container(
               padding: EdgeInsets.all(size.width * 0.05),
               decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    AppColors.primary,
-                    AppColors.primary.withOpacity(0.8)
-                  ],
+                gradient: const LinearGradient(
+                  colors: AppColors.headerGradient,
                 ),
                 borderRadius: const BorderRadius.vertical(
                   bottom: Radius.circular(30),
                 ),
                 boxShadow: [
                   BoxShadow(
-                    color: AppColors.primary.withOpacity(0.3),
+                    color: AppColors.withAlpha(AppColors.primary, 0.2),
                     blurRadius: 10,
                     offset: const Offset(0, 5),
                   ),
@@ -170,9 +168,13 @@ class _BuyerHomeState extends State<BuyerHome> {
 
             // Content
             Expanded(
-              child: _isLoading
-                  ? const Center(child: CircularProgressIndicator())
-                  : SingleChildScrollView(
+              child: AnimatedSwitcher(
+                duration: const Duration(milliseconds: 260),
+                child: _isLoading
+                    ? const Center(child: CircularProgressIndicator())
+                    : FadeSlideIn(
+                        key: const ValueKey('buyer-content'),
+                        child: SingleChildScrollView(
                       padding: EdgeInsets.all(size.width * 0.05),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -196,7 +198,7 @@ class _BuyerHomeState extends State<BuyerHome> {
                             )
                           else
                             SizedBox(
-                              height: size.height * 0.2,
+                              height: size.height * 0.22,
                               child: ListView.builder(
                                 scrollDirection: Axis.horizontal,
                                 itemCount: _runningProjects.length,
@@ -233,6 +235,8 @@ class _BuyerHomeState extends State<BuyerHome> {
                         ],
                       ),
                     ),
+                      ),
+              ),
             ),
           ],
         ),
@@ -278,6 +282,7 @@ class _BuyerHomeState extends State<BuyerHome> {
         borderRadius: BorderRadius.circular(15),
         child: Container(
           width: size.width * 0.7,
+          constraints: BoxConstraints(minHeight: size.height * 0.19),
           padding: EdgeInsets.all(size.width * 0.04),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -374,22 +379,35 @@ class _BuyerHomeState extends State<BuyerHome> {
                       vertical: 6,
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.orange.withOpacity(0.1),
+                      color: AppColors.withAlpha(AppColors.statusWarning, 0.14),
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text(
                       'AWAITING DEVELOPER',
                       style: TextStyle(
-                        color: Colors.orange,
+                        color: AppColors.statusWarning,
                         fontSize: size.width * 0.03,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),
-                  const Spacer(),
-                  TextButton(
-                    onPressed: () => _showProposals(project),
-                    child: const Text('View Proposals'),
+                  SizedBox(width: size.width * 0.025),
+                  Flexible(
+                    child: Align(
+                      alignment: Alignment.centerRight,
+                      child: TextButton(
+                        onPressed: () => _showProposals(project),
+                        style: TextButton.styleFrom(
+                          foregroundColor: AppColors.primary,
+                          visualDensity: VisualDensity.compact,
+                        ),
+                        child: const Text(
+                          'View Proposals',
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -545,7 +563,7 @@ class _BuyerHomeState extends State<BuyerHome> {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Proposal accepted & task created!'),
-            backgroundColor: Colors.green,
+            backgroundColor: AppColors.statusSuccess,
           ),
         );
       } else {
@@ -556,7 +574,7 @@ class _BuyerHomeState extends State<BuyerHome> {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text('Failed to accept proposal'),
-            backgroundColor: Colors.red,
+            backgroundColor: AppColors.statusError,
           ),
         );
       }
@@ -568,7 +586,7 @@ class _BuyerHomeState extends State<BuyerHome> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Error: ${e.toString()}'),
-          backgroundColor: Colors.red,
+          backgroundColor: AppColors.statusError,
         ),
       );
     }

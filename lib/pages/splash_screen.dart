@@ -1,8 +1,7 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 import '../utils/constants.dart';
+import '../widgets/fade_slide_in.dart';
 import 'login_page.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -15,119 +14,126 @@ class SplashScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          // Background Image
           Container(
-            width: size.width,
-            height: size.height,
+            width: double.infinity,
+            height: double.infinity,
             decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: NetworkImage(
-                  'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800',
-                ),
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-
-          // Gradient Overlay
-          Container(
-            decoration: BoxDecoration(
               gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  Colors.transparent,
-                  Colors.black.withOpacity(0.7),
-                  Colors.black.withOpacity(0.9),
-                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: AppColors.heroGradient,
               ),
             ),
           ),
-
-          // Bottom Content with Blur
           Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: ClipRRect(
-              child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-                child: Container(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: size.width * 0.08,
-                    vertical: size.height * 0.06,
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.1),
-                    borderRadius: const BorderRadius.vertical(
-                      top: Radius.circular(30),
+            top: -size.width * 0.32,
+            right: -size.width * 0.2,
+            child: Container(
+              width: size.width * 0.72,
+              height: size.width * 0.72,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: AppColors.withAlpha(AppColors.secondary, 0.28),
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: -size.width * 0.4,
+            left: -size.width * 0.25,
+            child: Container(
+              width: size.width * 0.95,
+              height: size.width * 0.95,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: AppColors.withAlpha(AppColors.primary, 0.12),
+              ),
+            ),
+          ),
+          SafeArea(
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: size.width * 0.08,
+                vertical: size.height * 0.04,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  FadeSlideIn(
+                    beginOffsetY: 0.03,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 14,
+                        vertical: 8,
+                      ),
+                      decoration: BoxDecoration(
+                        color: AppColors.withAlpha(AppColors.primary, 0.08),
+                        borderRadius: BorderRadius.circular(AppRadii.pill),
+                        border: Border.all(
+                          color: AppColors.withAlpha(AppColors.primary, 0.2),
+                        ),
+                      ),
+                      child: const Text(
+                        'SMART JOB DISCOVERY',
+                        style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 1.1,
+                          color: AppColors.primary,
+                        ),
+                      ),
                     ),
                   ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      // Title
-                      Text(
-                        'Find Your Dream Job',
-                        style: TextStyle(
-                          fontSize: size.width * 0.08,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          height: 1.2,
-                        ),
-                        textAlign: TextAlign.center,
+                  const Spacer(),
+                  FadeSlideIn(
+                    child: Text(
+                      'Find better projects.\nHire faster.',
+                      style: TextStyle(
+                        fontSize: size.width * 0.11,
+                        fontWeight: FontWeight.w700,
+                        height: 1.08,
+                        color: AppColors.textPrimary,
                       ),
-
-                      SizedBox(height: size.height * 0.015),
-
-                      // Subtitle
-                      Text(
-                        'Connect with top companies and talented developers',
-                        style: TextStyle(
-                          fontSize: size.width * 0.038,
-                          color: Colors.white.withOpacity(0.9),
-                          height: 1.4,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-
-                      SizedBox(height: size.height * 0.04),
-
-                      // Get Started Button
-                      SizedBox(
-                        width: double.infinity,
-                        height: size.height * 0.065,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) => const LoginPage(),
-                              ),
-                            );
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColors.primary,
-                            foregroundColor: Colors.white,
-                            elevation: 5,
-                            shadowColor: AppColors.primary.withOpacity(0.5),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                          ),
-                          child: Text(
-                            'Get Started',
-                            style: TextStyle(
-                              fontSize: size.width * 0.045,
-                              fontWeight: FontWeight.w600,
-                              letterSpacing: 0.5,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
-                ),
+                  SizedBox(height: size.height * 0.018),
+                  FadeSlideIn(
+                    duration: const Duration(milliseconds: 420),
+                    child: Text(
+                      'A clean workspace for buyers, developers, and admins to track project progress from one place.',
+                      style: TextStyle(
+                        fontSize: size.width * 0.039,
+                        color: AppColors.textSecondary,
+                        height: 1.45,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: size.height * 0.05),
+                  FadeSlideIn(
+                    duration: const Duration(milliseconds: 520),
+                    child: SizedBox(
+                      width: double.infinity,
+                      height: size.height * 0.066,
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const LoginPage(),
+                            ),
+                          );
+                        },
+                        child: Text(
+                          'Get Started',
+                          style: TextStyle(
+                            fontSize: size.width * 0.043,
+                            letterSpacing: 0.3,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: size.height * 0.01),
+                ],
               ),
             ),
           ),

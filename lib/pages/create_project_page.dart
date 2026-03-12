@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../services/api_service.dart';
 import '../utils/constants.dart';
+import '../widgets/fade_slide_in.dart';
 
 class CreateProjectPage extends StatefulWidget {
   const CreateProjectPage({super.key});
@@ -56,7 +57,7 @@ class _CreateProjectPageState extends State<CreateProjectPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Project created successfully!'),
-          backgroundColor: AppColors.secondary,
+          backgroundColor: AppColors.statusSuccess,
         ),
       );
       Navigator.pop(context);
@@ -64,7 +65,7 @@ class _CreateProjectPageState extends State<CreateProjectPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Failed to create project'),
-          backgroundColor: AppColors.accent,
+          backgroundColor: AppColors.statusError,
         ),
       );
     }
@@ -77,37 +78,32 @@ class _CreateProjectPageState extends State<CreateProjectPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Create New Job'),
-        backgroundColor: AppColors.primary,
-        foregroundColor: Colors.white,
       ),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.all(size.width * 0.05),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
+      body: SafeArea(
+        child: FadeSlideIn(
+          child: SingleChildScrollView(
+            padding: EdgeInsets.all(size.width * 0.05),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
                 'Post a New Job',
                 style: TextStyle(
                   fontSize: size.width * 0.06,
                   fontWeight: FontWeight.bold,
                 ),
-              ),
-              SizedBox(height: size.height * 0.02),
+                  ),
+                  SizedBox(height: size.height * 0.02),
 
               // Title
-              TextFormField(
-                controller: _titleController,
-                decoration: InputDecoration(
-                  labelText: 'Job Title *',
-                  hintText: 'e.g., Flutter Mobile App Developer',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
+                TextFormField(
+                  controller: _titleController,
+                  decoration: InputDecoration(
+                    labelText: 'Job Title *',
+                    hintText: 'e.g., Flutter Mobile App Developer',
                   ),
-                  filled: true,
-                  fillColor: Colors.white,
-                ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter a job title';
@@ -119,18 +115,13 @@ class _CreateProjectPageState extends State<CreateProjectPage> {
               SizedBox(height: size.height * 0.02),
 
               // Description
-              TextFormField(
-                controller: _descriptionController,
-                maxLines: 5,
-                decoration: InputDecoration(
-                  labelText: 'Job Description *',
-                  hintText: 'Describe the project requirements...',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
+                TextFormField(
+                  controller: _descriptionController,
+                  maxLines: 5,
+                  decoration: InputDecoration(
+                    labelText: 'Job Description *',
+                    hintText: 'Describe the project requirements...',
                   ),
-                  filled: true,
-                  fillColor: Colors.white,
-                ),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter a description';
@@ -142,60 +133,59 @@ class _CreateProjectPageState extends State<CreateProjectPage> {
               SizedBox(height: size.height * 0.02),
 
               // Hourly Rate & Duration
-              Row(
-                children: [
-                  Expanded(
-                    child: TextFormField(
-                      controller: _hourlyRateController,
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        labelText: 'Hourly Rate *',
-                        prefixText: '\$',
-                        hintText: '50',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
+              LayoutBuilder(
+                builder: (context, constraints) {
+                  final isNarrow = constraints.maxWidth < 360;
+                  return Flex(
+                    direction: isNarrow ? Axis.vertical : Axis.horizontal,
+                    children: [
+                      Expanded(
+                        child: TextFormField(
+                          controller: _hourlyRateController,
+                          keyboardType: TextInputType.number,
+                          decoration: const InputDecoration(
+                            labelText: 'Hourly Rate *',
+                            prefixText: '\$',
+                            hintText: '50',
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Required';
+                            }
+                            if (double.tryParse(value) == null) {
+                              return 'Invalid';
+                            }
+                            return null;
+                          },
                         ),
-                        filled: true,
-                        fillColor: Colors.white,
                       ),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Required';
-                        }
-                        if (double.tryParse(value) == null) {
-                          return 'Invalid';
-                        }
-                        return null;
-                      },
-                    ),
-                  ),
-                  SizedBox(width: size.width * 0.03),
-                  Expanded(
-                    child: TextFormField(
-                      controller: _durationController,
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                        labelText: 'Duration *',
-                        suffixText: 'hrs',
-                        hintText: '40',
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(12),
+                      SizedBox(
+                        width: isNarrow ? 0 : size.width * 0.03,
+                        height: isNarrow ? size.height * 0.015 : 0,
+                      ),
+                      Expanded(
+                        child: TextFormField(
+                          controller: _durationController,
+                          keyboardType: TextInputType.number,
+                          decoration: const InputDecoration(
+                            labelText: 'Duration *',
+                            suffixText: 'hrs',
+                            hintText: '40',
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Required';
+                            }
+                            if (double.tryParse(value) == null) {
+                              return 'Invalid';
+                            }
+                            return null;
+                          },
                         ),
-                        filled: true,
-                        fillColor: Colors.white,
                       ),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Required';
-                        }
-                        if (double.tryParse(value) == null) {
-                          return 'Invalid';
-                        }
-                        return null;
-                      },
-                    ),
-                  ),
-                ],
+                    ],
+                  );
+                },
               ),
 
               SizedBox(height: size.height * 0.02),
@@ -206,11 +196,6 @@ class _CreateProjectPageState extends State<CreateProjectPage> {
                 decoration: InputDecoration(
                   labelText: 'Skills/Tags (comma-separated)',
                   hintText: 'flutter, firebase, api, mobile',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  filled: true,
-                  fillColor: Colors.white,
                   helperText: 'Separate tags with commas',
                 ),
               ),
@@ -224,12 +209,9 @@ class _CreateProjectPageState extends State<CreateProjectPage> {
                 child: ElevatedButton(
                   onPressed: _isSubmitting ? null : _createProject,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.primary,
-                    foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(AppRadii.md),
                     ),
-                    elevation: 3,
                   ),
                   child: _isSubmitting
                       ? const SizedBox(
@@ -237,7 +219,9 @@ class _CreateProjectPageState extends State<CreateProjectPage> {
                           width: 20,
                           child: CircularProgressIndicator(
                             strokeWidth: 2,
-                            valueColor: AlwaysStoppedAnimation(Colors.white),
+                            valueColor: AlwaysStoppedAnimation(
+                              AppColors.onPrimary,
+                            ),
                           ),
                         )
                       : Text(
@@ -248,8 +232,10 @@ class _CreateProjectPageState extends State<CreateProjectPage> {
                           ),
                         ),
                 ),
+                ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
       ),
