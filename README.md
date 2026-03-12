@@ -1,4 +1,4 @@
-# paid_task (Flutter App)
+# skillNest (Flutter App)
 
 Step-by-step guide to run the project locally.
 
@@ -22,7 +22,7 @@ Fix anything marked as required before continuing.
 
 ```bash
 git clone <your-repo-url>
-cd task-platform-app
+cd skillNest
 ```
 
 ## 3. Install dependencies
