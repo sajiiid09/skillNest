@@ -59,8 +59,8 @@ class AppColors {
   ];
 
   static Color withAlpha(Color color, double opacity) {
-    final safeOpacity = opacity.clamp(0.0, 1.0);
-    return color.withOpacity(safeOpacity);
+    final safeOpacity = opacity.clamp(0.0, 1.0).toDouble();
+    return color.withValues(alpha: safeOpacity);
   }
 }
 

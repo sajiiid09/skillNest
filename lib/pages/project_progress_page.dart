@@ -174,7 +174,6 @@ class _ProjectProgressPageState extends State<ProjectProgressPage> {
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -214,10 +213,11 @@ class _ProjectProgressPageState extends State<ProjectProgressPage> {
                             ),
                             SizedBox(height: size.height * 0.01),
                             Text(
-                              _projectDetails['description'] ?? 'No description',
+                              _projectDetails['description'] ??
+                                  'No description',
                               style: TextStyle(
                                 fontSize: size.width * 0.035,
-                                color: Colors.white.withOpacity(0.9),
+                                color: Colors.white.withValues(alpha: 0.9),
                               ),
                               maxLines: 3,
                             ),
@@ -228,7 +228,7 @@ class _ProjectProgressPageState extends State<ProjectProgressPage> {
                                 vertical: 6,
                               ),
                               decoration: BoxDecoration(
-                                color: Colors.white.withOpacity(0.2),
+                                color: Colors.white.withValues(alpha: 0.2),
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               child: Text(
@@ -305,7 +305,7 @@ class _ProjectProgressPageState extends State<ProjectProgressPage> {
                             else
                               ..._tasks.map((task) {
                                 return _buildTaskProgressCard(task, size);
-                              }).toList(),
+                              }),
                           ],
                         ),
                       ),
@@ -316,6 +316,7 @@ class _ProjectProgressPageState extends State<ProjectProgressPage> {
       ),
     );
   }
+
   Widget _buildInfoCard(
     String title,
     String value,
@@ -325,10 +326,10 @@ class _ProjectProgressPageState extends State<ProjectProgressPage> {
     return Container(
       padding: EdgeInsets.all(size.width * 0.04),
       decoration: BoxDecoration(
-        color: AppColors.primary.withOpacity(0.1),
+        color: AppColors.primary.withValues(alpha: 0.1),
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
-          color: AppColors.primary.withOpacity(0.3),
+          color: AppColors.primary.withValues(alpha: 0.3),
         ),
       ),
       child: Column(
@@ -401,7 +402,7 @@ class _ProjectProgressPageState extends State<ProjectProgressPage> {
                     vertical: 6,
                   ),
                   decoration: BoxDecoration(
-                    color: statusColor.withOpacity(0.1),
+                    color: statusColor.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Text(
@@ -469,10 +470,10 @@ class _ProjectProgressPageState extends State<ProjectProgressPage> {
               Container(
                 padding: EdgeInsets.all(size.width * 0.03),
                 decoration: BoxDecoration(
-                  color: AppColors.secondary.withOpacity(0.1),
+                  color: AppColors.secondary.withValues(alpha: 0.1),
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(
-                    color: AppColors.secondary.withOpacity(0.3),
+                    color: AppColors.secondary.withValues(alpha: 0.3),
                   ),
                 ),
                 child: Row(
@@ -535,7 +536,7 @@ class _ProjectProgressPageState extends State<ProjectProgressPage> {
                     vertical: 10,
                   ),
                   decoration: BoxDecoration(
-                    color: AppColors.secondary.withOpacity(0.1),
+                    color: AppColors.secondary.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(10),
                     border: Border.all(
                       color: AppColors.secondary,

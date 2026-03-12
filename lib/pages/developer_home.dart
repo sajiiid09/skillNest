@@ -6,7 +6,7 @@ import '../services/api_service.dart';
 import '../services/auth_service.dart';
 import '../utils/constants.dart';
 import '../widgets/fade_slide_in.dart';
-import 'TaskDetailsPage.dart';
+import 'task_details_page.dart';
 import 'login_page.dart';
 import 'project_details_page.dart';
 
@@ -175,7 +175,7 @@ class _DeveloperHomeState extends State<DeveloperHome>
                             Text(
                               'Role: Developer',
                               style: TextStyle(
-                                color: Colors.white.withOpacity(0.9),
+                                color: Colors.white.withValues(alpha: 0.9),
                                 fontSize: size.width * 0.035,
                               ),
                             ),
@@ -349,7 +349,7 @@ class _DeveloperHomeState extends State<DeveloperHome>
                       vertical: 6,
                     ),
                     decoration: BoxDecoration(
-                      color: AppColors.secondary.withOpacity(0.1),
+                      color: AppColors.secondary.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text(
@@ -417,7 +417,7 @@ class _DeveloperHomeState extends State<DeveloperHome>
                         vertical: 4,
                       ),
                       decoration: BoxDecoration(
-                        color: AppColors.primary.withOpacity(0.1),
+                        color: AppColors.primary.withValues(alpha: 0.1),
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Text(
@@ -493,7 +493,7 @@ class _DeveloperHomeState extends State<DeveloperHome>
                     vertical: 6,
                   ),
                   decoration: BoxDecoration(
-                    color: statusColor.withOpacity(0.1),
+                    color: statusColor.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Text(
@@ -589,7 +589,7 @@ class _DeveloperHomeState extends State<DeveloperHome>
                       vertical: 6,
                     ),
                     decoration: BoxDecoration(
-                      color: AppColors.secondary.withOpacity(0.1),
+                      color: AppColors.secondary.withValues(alpha: 0.1),
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text(
@@ -697,7 +697,7 @@ class _DeveloperHomeState extends State<DeveloperHome>
                     vertical: 6,
                   ),
                   decoration: BoxDecoration(
-                    color: AppColors.secondary.withOpacity(0.1),
+                    color: AppColors.secondary.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Text(

@@ -130,7 +130,7 @@ class _BuyerHomeState extends State<BuyerHome> {
                             Text(
                               'Role: Buyer',
                               style: TextStyle(
-                                color: Colors.white.withOpacity(0.9),
+                                color: Colors.white.withValues(alpha: 0.9),
                                 fontSize: size.width * 0.035,
                               ),
                             ),
@@ -175,66 +175,67 @@ class _BuyerHomeState extends State<BuyerHome> {
                     : FadeSlideIn(
                         key: const ValueKey('buyer-content'),
                         child: SingleChildScrollView(
-                      padding: EdgeInsets.all(size.width * 0.05),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          // Running Projects
-                          Text(
-                            'Running Projects',
-                            style: TextStyle(
-                              fontSize: size.width * 0.05,
-                              fontWeight: FontWeight.bold,
-                            ),
+                          padding: EdgeInsets.all(size.width * 0.05),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              // Running Projects
+                              Text(
+                                'Running Projects',
+                                style: TextStyle(
+                                  fontSize: size.width * 0.05,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(height: size.height * 0.02),
+
+                              if (_runningProjects.isEmpty)
+                                const Center(
+                                  child: Padding(
+                                    padding: EdgeInsets.all(20),
+                                    child: Text('No running projects'),
+                                  ),
+                                )
+                              else
+                                SizedBox(
+                                  height: size.height * 0.22,
+                                  child: ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: _runningProjects.length,
+                                    itemBuilder: (context, index) {
+                                      final project = _runningProjects[index];
+                                      return _buildProjectCard(project, size);
+                                    },
+                                  ),
+                                ),
+
+                              SizedBox(height: size.height * 0.03),
+
+                              // Open Projects (Awaiting Developer)
+                              Text(
+                                'Awaiting Developer Assignment',
+                                style: TextStyle(
+                                  fontSize: size.width * 0.05,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              SizedBox(height: size.height * 0.02),
+
+                              if (_openProjects.isEmpty)
+                                const Center(
+                                  child: Padding(
+                                    padding: EdgeInsets.all(20),
+                                    child:
+                                        Text('No projects awaiting assignment'),
+                                  ),
+                                )
+                              else
+                                ..._openProjects.map((project) {
+                                  return _buildOpenProjectCard(project, size);
+                                }),
+                            ],
                           ),
-                          SizedBox(height: size.height * 0.02),
-
-                          if (_runningProjects.isEmpty)
-                            const Center(
-                              child: Padding(
-                                padding: EdgeInsets.all(20),
-                                child: Text('No running projects'),
-                              ),
-                            )
-                          else
-                            SizedBox(
-                              height: size.height * 0.22,
-                              child: ListView.builder(
-                                scrollDirection: Axis.horizontal,
-                                itemCount: _runningProjects.length,
-                                itemBuilder: (context, index) {
-                                  final project = _runningProjects[index];
-                                  return _buildProjectCard(project, size);
-                                },
-                              ),
-                            ),
-
-                          SizedBox(height: size.height * 0.03),
-
-                          // Open Projects (Awaiting Developer)
-                          Text(
-                            'Awaiting Developer Assignment',
-                            style: TextStyle(
-                              fontSize: size.width * 0.05,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: size.height * 0.02),
-
-                          if (_openProjects.isEmpty)
-                            const Center(
-                              child: Padding(
-                                padding: EdgeInsets.all(20),
-                                child: Text('No projects awaiting assignment'),
-                              ),
-                            )
-                          else
-                            ..._openProjects.map((project) {
-                              return _buildOpenProjectCard(project, size);
-                            }),
-                        ],
-                      ),
-                    ),
+                        ),
                       ),
               ),
             ),
@@ -547,10 +548,9 @@ class _BuyerHomeState extends State<BuyerHome> {
 
     try {
       final success = await ApiService.acceptProposalAndCreateTask(proposalId);
+      if (!mounted) return;
 
       if (success) {
-        if (!mounted) return;
-
         print('========== PROPOSAL & TASK ACCEPTED ==========');
         print('Proposal ID: $proposalId');
         print('Task created successfully');
@@ -582,6 +582,7 @@ class _BuyerHomeState extends State<BuyerHome> {
       print('========== ERROR IN ACCEPT PROPOSAL ==========');
       print('Error: $e');
       print('=========================================\n');
+      if (!mounted) return;
 
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(

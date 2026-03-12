@@ -67,7 +67,6 @@ class _RegisterPageState extends State<RegisterPage> {
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -152,7 +151,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
                   // Role
                   DropdownButtonFormField<UserRole>(
-                    value: _selectedRole,
+                    initialValue: _selectedRole,
                     decoration: const InputDecoration(
                       labelText: 'Register as',
                       prefixIcon: Icon(Icons.badge_outlined),
@@ -219,8 +218,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                         onPressed: () {
                           setState(() {
-                            _obscureConfirmPassword =
-                                !_obscureConfirmPassword;
+                            _obscureConfirmPassword = !_obscureConfirmPassword;
                           });
                         },
                       ),
