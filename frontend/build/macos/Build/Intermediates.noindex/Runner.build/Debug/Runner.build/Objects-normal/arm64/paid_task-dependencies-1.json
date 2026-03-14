@@ -197,7 +197,7 @@
   {
     "isFramework" : true,
     "moduleName" : "file_picker",
-    "modulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/Build\/Products\/Debug\/file_picker\/file_picker.framework\/Modules\/file_picker.swiftmodule\/arm64-apple-macos.swiftmodule"
+    "modulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/Build\/Products\/Debug\/file_picker\/file_picker.framework\/Modules\/file_picker.swiftmodule\/arm64-apple-macos.swiftmodule"
   },
   {
     "isFramework" : false,
@@ -207,12 +207,12 @@
   {
     "isFramework" : true,
     "moduleName" : "path_provider_foundation",
-    "modulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/Build\/Products\/Debug\/path_provider_foundation\/path_provider_foundation.framework\/Modules\/path_provider_foundation.swiftmodule\/arm64-apple-macos.swiftmodule"
+    "modulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/Build\/Products\/Debug\/path_provider_foundation\/path_provider_foundation.framework\/Modules\/path_provider_foundation.swiftmodule\/arm64-apple-macos.swiftmodule"
   },
   {
     "isFramework" : true,
     "moduleName" : "shared_preferences_foundation",
-    "modulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/Build\/Products\/Debug\/shared_preferences_foundation\/shared_preferences_foundation.framework\/Modules\/shared_preferences_foundation.swiftmodule\/arm64-apple-macos.swiftmodule"
+    "modulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/Build\/Products\/Debug\/shared_preferences_foundation\/shared_preferences_foundation.framework\/Modules\/shared_preferences_foundation.swiftmodule\/arm64-apple-macos.swiftmodule"
   },
   {
     "isFramework" : false,
@@ -222,508 +222,508 @@
   {
     "isFramework" : true,
     "moduleName" : "url_launcher_macos",
-    "modulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/Build\/Products\/Debug\/url_launcher_macos\/url_launcher_macos.framework\/Modules\/url_launcher_macos.swiftmodule\/arm64-apple-macos.swiftmodule"
+    "modulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/Build\/Products\/Debug\/url_launcher_macos\/url_launcher_macos.framework\/Modules\/url_launcher_macos.swiftmodule\/arm64-apple-macos.swiftmodule"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/Accessibility.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/Accessibility-BY7RYQ9FIFNFU438ZADD8YXVT.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/Accessibility-BL64HWFCM720XK1M1OPMKWYV1.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "Accessibility"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/AppKit.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/AppKit-6K93C28A41F2WTOMYB11IGKI7.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/AppKit-7T5KU0E3CK8SVO6SK8JJX8H53.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "AppKit"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/ApplicationServices.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/ApplicationServices-7UIA45OPBRJO5C37GOAQT8Y4G.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/ApplicationServices-15WFPF6VAU5MSJXMBZCJUQ6I8.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "ApplicationServices"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/CFNetwork.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/CFNetwork-9ROZ4ST2DG20ISUC25YN3A4QH.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/CFNetwork-9ITN1IY9YKCIIW3VGF3TVXF7U.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "CFNetwork"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/usr\/include\/cups.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/CUPS-DQYY0XP3KBIOLQ8NDSQKIDJBT.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/CUPS-EWHHOFK2F2F7MJDMKHY9CC0G4.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "CUPS"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/Cocoa.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/Cocoa-BKF028LTQY3VMHVXW65BYQSEC.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/Cocoa-EFCAA9EV3C3QF4UMYB47X6SQO.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "Cocoa"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/ColorSync.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/ColorSync-7BHHUAOYOBV1CVZW2U1X9ZZ6W.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/ColorSync-ABJGUVPF5H1T2UI72EE9Z9ATD.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "ColorSync"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/CoreAudio.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/CoreAudio-EU8YMPRY9VF6QL4QW7LIGRMTN.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/CoreAudio-29QP4XJ0MHH7O3B2MFJNGVI4.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "CoreAudio"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/CoreAudioTypes.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/CoreAudioTypes-COKSR3647M6Y6IG0NSQ0EB6XB.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/CoreAudioTypes-5RPGDNCCY2XO0XCXQ8MJ6DSWI.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "CoreAudioTypes"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/CoreData.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/CoreData-6YIA4W95S55B5T59JYLZPR8ZB.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/CoreData-EG2UEM2FCDE2OHEB7LO6RLQMH.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "CoreData"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/CoreFoundation.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/CoreFoundation-COROL70BIL5TQYKXNR2ZSO0SZ.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/CoreFoundation-DFVZ55OF7LYL209A6E090VTUY.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "CoreFoundation"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/CoreGraphics.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/CoreGraphics-2904YKT207MMJ2UE4XSTF1FRK.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/CoreGraphics-47MCZCLKEJT34V958QQYXMA3G.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "CoreGraphics"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/CoreImage.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/CoreImage-481IHFJLACFMQGPVOYT2WYWUI.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/CoreImage-CJIX3INJM0W4P3AQ50LQSMAPD.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "CoreImage"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/CoreMedia.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/CoreMedia-83VTT848OZGI1U5REL2QX90PY.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/CoreMedia-2MAXQ24DIYICBZVHJV669TO16.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "CoreMedia"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/CoreServices.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/CoreServices-4IWIK7ON0WONYJ44OEDEAY59K.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/CoreServices-7KGK6C126EWKVI6802T154Q8.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "CoreServices"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/CoreText.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/CoreText-BIEHV3XFPPT1ENNMDZDOSO6I6.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/CoreText-1N8USATMHYOLV7654OWN3IZNM.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "CoreText"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/CoreTransferable.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/CoreTransferable-ETZPVV20UXNQPWRK09AT6OVIN.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/CoreTransferable-85C453G0WP5QFZWUM6EZAL0HG.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "CoreTransferable"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/CoreVideo.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/CoreVideo-16Z7LWH0373EFH7RZGHC51T55.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/CoreVideo-BYUCVGW5KM1H63EE2WPHKIJTQ.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "CoreVideo"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/usr\/include\/Darwin.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/Darwin-5RFDJX997K8VH47BJCVHXUFFF.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/Darwin-F5IKB6SXO632P44VXBTBJFO20.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "Darwin"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/DataDetection.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/DataDetection-8UZTXXA56GR55YPZ7AGSO60S3.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/DataDetection-EM2URMM7JXUZVJ9LPP22NT1CL.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "DataDetection"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/DeveloperToolsSupport.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/DeveloperToolsSupport-91MYO7E7HXQVF9BQNDIVJ3Z32.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/DeveloperToolsSupport-3E67PA8AU3Y7O58YHMKKIML66.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "DeveloperToolsSupport"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/DiskArbitration.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/DiskArbitration-4UME7ANIUVF4Q945799Q2YQDG.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/DiskArbitration-BP4URJLI47BXXBU0EGDYHXR71.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "DiskArbitration"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/usr\/include\/dispatch.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/Dispatch-6LQENFI3XN2YPAQLTJ0DJHR45.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/Dispatch-9T67UXFQB3XVQSF7B7FCZR7AD.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "Dispatch"
   },
   {
-    "clangModuleMapPath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/Build\/Products\/Debug\/FlutterMacOS.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/Build\/Intermediates.noindex\/SwiftExplicitPrecompiledModules\/FlutterMacOS-A3BGTH8O5BZQNCNR48ANT5LXL.pcm",
+    "clangModuleMapPath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/Build\/Products\/Debug\/FlutterMacOS.framework\/Modules\/module.modulemap",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/Build\/Intermediates.noindex\/SwiftExplicitPrecompiledModules\/FlutterMacOS-2HIEST3OOBG46WMYPFEJGPSMW.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "FlutterMacOS"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/Foundation.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/Foundation-AH7WQ1R21BHAN4HMN2BJFQ990.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/Foundation-DDC2CO531OY99VSVGHWAE1HZ.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "Foundation"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/IOKit.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/IOKit-BMOX6HTQKP9OZ97P5RR84XUHP.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/IOKit-E0556L8C8QK8E9Y5YGVSFNWVO.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "IOKit"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/IOSurface.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/IOSurface-95VN7HXCE6HGZH478QUC0WLEQ.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/IOSurface-AG3RU1UGA1FQD737GX5OQ6SF8.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "IOSurface"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/ImageIO.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/ImageIO-1CPZM639PV8MYJH4CWG5A6QGY.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/ImageIO-AVHJV4PPP35N485XJK2Y7MY52.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "ImageIO"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/usr\/include\/DarwinBasic.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/MachO-7UQ102JQSA570MY2N1XZ5XUWV.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/MachO-AFOTEN6LSY4NR1D76WF2MKAD9.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "MachO"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/Metal.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/Metal-8O0JKY0NZYDH8FAFFBD5H7C3C.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/Metal-IVS72HFGVJ1S58E9CA9J15GP.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "Metal"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/OSLog.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/OSLog-EIJL6AX0F1S66ZZPKFFQBRL3O.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/OSLog-EI2OVNVOGRRX8U77JBMYC3ENO.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "OSLog"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/usr\/include\/ObjectiveC.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/ObjectiveC-B9L12L5W16QALZZMA7U0EKRK5.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/ObjectiveC-3I4D4VG3R84OHCV7GJ6YIDGX0.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "ObjectiveC"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/OpenGL.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/OpenGL-97677RD5HGXLYN2EDWYU9XRFT.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/OpenGL-DITJGUIUY99CD67AGU4AOD0V3.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "OpenGL"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/QuartzCore.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/QuartzCore-BCNF1NCAEW50PTOFNIV79FNGO.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/QuartzCore-E40YC8SN2FTXGTSN0668MR2BZ.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "QuartzCore"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/Security.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/Security-4WF6PNRHPBEGO5B1NG6PO2FD.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/Security-2W1C3QNSR4V32XMF160OQX4SC.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "Security"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/usr\/include\/Spatial\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/Spatial-AD13EZZCMX5QK7JU7G29OOYYX.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/Spatial-DKV3QZ4KXINU0P819TY5SG722.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "Spatial"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/usr\/lib\/swift\/shims\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/SwiftShims-CM32M34O3UPH0W2IG5ZTCERYK.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/SwiftShims-FC6KLDFXFCG37JC66C9YWC1F.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "SwiftShims"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/SwiftUI.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/SwiftUI-2HZD3OQV1SGD630HVQQ4DJQ4G.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/SwiftUI-D4A7266OAXHQOMW1DIBUT5BEO.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "SwiftUI"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/SwiftUICore.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/SwiftUICore-37X2LFPV8TVRGLW7ALL54WF9V.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/SwiftUICore-547TDMAMB2F9W6XIZWAIFTS4V.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "SwiftUICore"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/Symbols.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/Symbols-D2JJAV974JIIV1RHB7GF99PUR.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/Symbols-69UCLSMIY9AV7GAE82Q2MHL89.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "Symbols"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/System\/Library\/Frameworks\/UniformTypeIdentifiers.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/UniformTypeIdentifiers-5607PGMA1A9H0D7DALFEO8DN5.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/UniformTypeIdentifiers-4SO6H7S96TWSS15F2ODSSZB0H.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "UniformTypeIdentifiers"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/usr\/include\/xpc.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/XPC-ADAB89C6PVVA00X86KO9TDZKO.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/XPC-1ESGRRHLCQ84L2JRWWH2EKXRK.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "XPC"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/usr\/include\/DarwinFoundation1.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/_AvailabilityInternal-72JP7UZ9LRVK7MUC29AP8VGV2.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/_AvailabilityInternal-9K759HPNSTSDKSJQ6OWNVHSMS.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "_AvailabilityInternal"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Toolchains\/XcodeDefault.xctoolchain\/usr\/lib\/clang\/17\/include\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/_Builtin_float-EOBCPLPBKDWIIWY4IQY6TY4A1.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/_Builtin_float-CPAFPIW3FMJL2TGFZHK9931W0.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "_Builtin_float"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Toolchains\/XcodeDefault.xctoolchain\/usr\/lib\/clang\/17\/include\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/_Builtin_intrinsics-4Y895WCQELFFQAO65EJIGR387.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/_Builtin_intrinsics-ATJQ2F44YPL0K0OIXCAUD5621.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "_Builtin_intrinsics"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Toolchains\/XcodeDefault.xctoolchain\/usr\/lib\/clang\/17\/include\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/_Builtin_inttypes-3P1XWNCVKSZCRMPARVG9T5KL2.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/_Builtin_inttypes-1SC5598WMXSKBWHFG52TJ0766.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "_Builtin_inttypes"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Toolchains\/XcodeDefault.xctoolchain\/usr\/lib\/clang\/17\/include\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/_Builtin_limits-2WGL7RIBZRFEIOMDLX3SC5GFO.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/_Builtin_limits-A9X3CTK4O9P2IEH188K449QPX.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "_Builtin_limits"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Toolchains\/XcodeDefault.xctoolchain\/usr\/lib\/clang\/17\/include\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/_Builtin_stdarg-7AK51MSP0BRUO8TX81QH3S0JR.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/_Builtin_stdarg-1H1SEZD7IVYYHQ1DYN7RNRSSD.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "_Builtin_stdarg"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Toolchains\/XcodeDefault.xctoolchain\/usr\/lib\/clang\/17\/include\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/_Builtin_stdatomic-RK4QW3OWXQ86ZIQ349WXBY5M.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/_Builtin_stdatomic-9QDDFTGI0SS7H7R7WKV09R8KE.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "_Builtin_stdatomic"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Toolchains\/XcodeDefault.xctoolchain\/usr\/lib\/clang\/17\/include\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/_Builtin_stdbool-AQ79C5QLJKNIT3DCBL5JZDQ5E.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/_Builtin_stdbool-7JZZ2ZY45NCI4EBHWE5HHXB1X.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "_Builtin_stdbool"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Toolchains\/XcodeDefault.xctoolchain\/usr\/lib\/clang\/17\/include\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/_Builtin_stddef-40ZJC2Z4BYCBUWEY2BVYIJRPY.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/_Builtin_stddef-CH1I9VWKC40B3606UVQ3JD2MO.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "_Builtin_stddef"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Toolchains\/XcodeDefault.xctoolchain\/usr\/lib\/clang\/17\/include\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/_Builtin_stdint-3MDHZB7G1GM4CU3ROG2ZI7ZMJ.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/_Builtin_stdint-DFDM8PIV6BR861XTLACT5QTEZ.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "_Builtin_stdint"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Toolchains\/XcodeDefault.xctoolchain\/usr\/lib\/clang\/17\/include\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/_Builtin_tgmath-1HM12TI0FVAEWRLEDXVCDXHA6.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/_Builtin_tgmath-F3IQDU23C8P6MIFSJ7W5XZEZM.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "_Builtin_tgmath"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/usr\/include\/DarwinFoundation1.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/_DarwinFoundation1-2CNTL6SRH2Q4J9ZUBHJ53MA2H.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/_DarwinFoundation1-56U24ZJW3GFMMCN967T2HCPR5.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "_DarwinFoundation1"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/usr\/include\/DarwinFoundation2.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/_DarwinFoundation2-EIE2NNEVV4EXFG40FS6JE87L.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/_DarwinFoundation2-5XODZ0F1ZQ3ZKW8OF1HD6KEYL.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "_DarwinFoundation2"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/usr\/include\/DarwinFoundation3.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/_DarwinFoundation3-BKSFC6Y5OYMD8BOCS9SXLFMSL.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/_DarwinFoundation3-E37UAH6VX4UXL5PC6RTZQXTR7.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "_DarwinFoundation3"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/usr\/lib\/swift\/shims\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/_SwiftConcurrencyShims-CJRJFX2DF9IBLYUL6IA61ZZI0.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/_SwiftConcurrencyShims-37AAVOD9BCH80OCA9D2FKKO65.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "_SwiftConcurrencyShims"
   },
   {
-    "clangModuleMapPath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/Build\/Products\/Debug\/file_picker\/file_picker.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/Build\/Intermediates.noindex\/SwiftExplicitPrecompiledModules\/file_picker-B54I2H84IXZDUT8J6WED3HR40.pcm",
+    "clangModuleMapPath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/Build\/Products\/Debug\/file_picker\/file_picker.framework\/Modules\/module.modulemap",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/Build\/Intermediates.noindex\/SwiftExplicitPrecompiledModules\/file_picker-63W0M2HPBVBGK5IQ0BTCV0RWC.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "file_picker"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/usr\/include\/launch.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/launch-1VWTMX7OGSE7RGYN8ECHH7Z4C.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/launch-64WPO4IE9TU6SCFWV32K5F1HK.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "launch"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/usr\/include\/libDER\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/libDER-ES2ILZWZ1LBAVRS69WDRK6FDD.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/libDER-5VFYLC83L2G14IZMBS06ABQ63.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "libDER"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/usr\/include\/libkern.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/libkern-13MGKMVJL3JKEOECG1WBF8ZBL.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/libkern-4I88UXL6GGSGGT180D3UQKZZM.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "libkern"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/usr\/include\/os.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/os-9E9EZM6GJ96L0CTMFXBCJTMOR.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/os-9YWW2ML7I022YP81ABNYNPGSO.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "os"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/usr\/include\/os.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/os_object-DV6WBV2GQWZZJI78ESG450LLG.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/os_object-8SI23TW0LQUBYCNYZLWV0Y45T.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "os_object"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/usr\/include\/os.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/os_workgroup-CNGUZQ7IAB2EZFVBKS2HH6AUE.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/os_workgroup-2Q2HIGF5FXMO85L03LXIA4OGS.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "os_workgroup"
   },
   {
-    "clangModuleMapPath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/Build\/Products\/Debug\/path_provider_foundation\/path_provider_foundation.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/Build\/Intermediates.noindex\/SwiftExplicitPrecompiledModules\/path_provider_foundation-1NW3JPUWAC8I1L6BE0OUBULWB.pcm",
+    "clangModuleMapPath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/Build\/Products\/Debug\/path_provider_foundation\/path_provider_foundation.framework\/Modules\/module.modulemap",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/Build\/Intermediates.noindex\/SwiftExplicitPrecompiledModules\/path_provider_foundation-2ZIUBFOF2F1WOS9HUUK5J2772.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "path_provider_foundation"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Toolchains\/XcodeDefault.xctoolchain\/usr\/lib\/clang\/17\/include\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/ptrauth-CXGUJ8PSJ8Y9B4JTMVNZLQ6YY.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/ptrauth-OFQYJF3O4ILYB3D927SLQE61.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "ptrauth"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Toolchains\/XcodeDefault.xctoolchain\/usr\/lib\/clang\/17\/include\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/ptrcheck-1UWQLU1QPYS80TWGWQ98O4Y8T.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/ptrcheck-6VKC3X84WX8K3Q3VLVIGS8B0T.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "ptrcheck"
   },
   {
-    "clangModuleMapPath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/Build\/Products\/Debug\/shared_preferences_foundation\/shared_preferences_foundation.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/Build\/Intermediates.noindex\/SwiftExplicitPrecompiledModules\/shared_preferences_foundation-11W132LIIO61R3Z5NOJJAKXPI.pcm",
+    "clangModuleMapPath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/Build\/Products\/Debug\/shared_preferences_foundation\/shared_preferences_foundation.framework\/Modules\/module.modulemap",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/Build\/Intermediates.noindex\/SwiftExplicitPrecompiledModules\/shared_preferences_foundation-C503GSGOPU9GQ7GQRCKKFYWED.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "shared_preferences_foundation"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/usr\/include\/simd\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/simd-EVD9AGMYO3UGMGMFKOB5JIYHK.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/simd-2W9JDKPY1SJQHITECSZMCQP7B.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "simd"
   },
   {
-    "clangModuleMapPath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/Build\/Products\/Debug\/sqflite_darwin\/sqflite_darwin.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/Build\/Intermediates.noindex\/SwiftExplicitPrecompiledModules\/sqflite_darwin-LKOVNFYZ36I9MLA0OTP9BHJV.pcm",
+    "clangModuleMapPath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/Build\/Products\/Debug\/sqflite_darwin\/sqflite_darwin.framework\/Modules\/module.modulemap",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/Build\/Intermediates.noindex\/SwiftExplicitPrecompiledModules\/sqflite_darwin-B49OQ7TTW4Q8OO6PJG0M0V35.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "sqflite_darwin"
   },
   {
     "clangModuleMapPath" : "\/Applications\/Xcode.app\/Contents\/Developer\/Platforms\/MacOSX.platform\/Developer\/SDKs\/MacOSX.sdk\/usr\/include\/DarwinFoundation2.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/ModuleCache.noindex\/sys_types-BKDYRN6JOM3CWFM7M0Q93BKLN.pcm",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/ModuleCache.noindex\/sys_types-YMC9BWUHU8QVN1PD40F7SUA5.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "sys_types"
   },
   {
-    "clangModuleMapPath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/Build\/Products\/Debug\/url_launcher_macos\/url_launcher_macos.framework\/Modules\/module.modulemap",
-    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/build\/macos\/Build\/Intermediates.noindex\/SwiftExplicitPrecompiledModules\/url_launcher_macos-C7PM5UYB2B5Y63LEOPRS3OOOF.pcm",
+    "clangModuleMapPath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/Build\/Products\/Debug\/url_launcher_macos\/url_launcher_macos.framework\/Modules\/module.modulemap",
+    "clangModulePath" : "\/Users\/sajidmahmud\/Documents\/task-platform-app\/frontend\/build\/macos\/Build\/Intermediates.noindex\/SwiftExplicitPrecompiledModules\/url_launcher_macos-2QS5UNX4LOAL3KL0ZDQZVQ2VU.pcm",
     "isBridgingHeaderDependency" : false,
     "isFramework" : false,
     "moduleName" : "url_launcher_macos"
