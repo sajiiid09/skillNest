@@ -38,13 +38,14 @@ This app calls backend endpoints from:
 - `lib/utils/constants.dart`
 - `ApiConstants.baseUrl`
 
-Current value:
+The app now reads the API base URL from a compile-time define:
 
 ```dart
-static const String baseUrl = 'http://192.168.0.108:8000/api/v1';
+static const String baseUrl = String.fromEnvironment(
+  'API_BASE_URL',
+  defaultValue: 'http://127.0.0.1:8000/api/v1',
+);
 ```
-
-Change this to your local backend URL if needed.
 
 Common cases:
 
@@ -66,16 +67,28 @@ List devices:
 flutter devices
 ```
 
-Run app:
+Run app on the iOS simulator or same-machine environment:
 
 ```bash
 flutter run
 ```
 
+Run on Android emulator:
+
+```bash
+flutter run --dart-define=API_BASE_URL=http://10.0.2.2:8000/api/v1
+```
+
+Run on a physical device:
+
+```bash
+flutter run --dart-define=API_BASE_URL=http://<YOUR_COMPUTER_LAN_IP>:8000/api/v1
+```
+
 Run on a specific device:
 
 ```bash
-flutter run -d <device_id>
+flutter run -d <device_id> --dart-define=API_BASE_URL=http://<host>:8000/api/v1
 ```
 
 ## 7. Verify code health
