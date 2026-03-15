@@ -1,112 +1,54 @@
-# skillNest (Flutter App)
+# Frontend
 
-Step-by-step guide to run the project locally.
+Flutter client for the task platform.
 
-## 1. Prerequisites
+## Current scope
 
-Install these first:
+- Auth: login and registration
+- Roles: buyer, developer, admin
+- Buyer flow: create projects, review proposals, accept a proposal, track task progress, pay for submitted work, download paid files
+- Developer flow: browse open projects, submit proposals, view assigned tasks, upload task deliverables
+- Admin flow: dashboard stats for users, tasks, payments, and revenue
 
-- Flutter SDK (tested with Flutter `3.41.4`, Dart `3.11.1`)
-- Android Studio (for Android SDK/emulator) and/or Xcode (for iOS Simulator on macOS)
-- Git
+## API configuration
 
-Verify setup:
+The app reads the backend base URL from `API_BASE_URL` at build time.
 
-```bash
-flutter doctor
+Default:
+
+```text
+http://127.0.0.1:8000/api/v1
 ```
 
-Fix anything marked as required before continuing.
+Use cases:
 
-## 2. Clone and open the project
-
-```bash
-git clone <your-repo-url>
-cd skillNest
-```
-
-## 3. Install dependencies
-
-```bash
-flutter pub get
-```
-
-## 4. Configure backend API URL (important)
-
-This app calls backend endpoints from:
-
-- `lib/utils/constants.dart`
-- `ApiConstants.baseUrl`
-
-The app now reads the API base URL from a compile-time define:
-
-```dart
-static const String baseUrl = String.fromEnvironment(
-  'API_BASE_URL',
-  defaultValue: 'http://127.0.0.1:8000/api/v1',
-);
-```
-
-Common cases:
-
+- iOS simulator / same machine: default is correct
 - Android emulator: `http://10.0.2.2:8000/api/v1`
-- iOS simulator: `http://127.0.0.1:8000/api/v1`
 - Physical device: `http://<YOUR_COMPUTER_LAN_IP>:8000/api/v1`
 
-## 5. Start your backend server
-
-Run your API server so it is reachable at the `baseUrl` you set above.
-
-The app will not work correctly without a running backend.
-
-## 6. Run the Flutter app
-
-List devices:
+## Run locally
 
 ```bash
-flutter devices
-```
-
-Run app on the iOS simulator or same-machine environment:
-
-```bash
+cd frontend
+flutter pub get
 flutter run
 ```
 
-Run on Android emulator:
+Android emulator:
 
 ```bash
 flutter run --dart-define=API_BASE_URL=http://10.0.2.2:8000/api/v1
 ```
 
-Run on a physical device:
+Physical device:
 
 ```bash
 flutter run --dart-define=API_BASE_URL=http://<YOUR_COMPUTER_LAN_IP>:8000/api/v1
 ```
 
-Run on a specific device:
-
-```bash
-flutter run -d <device_id> --dart-define=API_BASE_URL=http://<host>:8000/api/v1
-```
-
-## 7. Verify code health
-
-Run analyzer:
+## Verification
 
 ```bash
 flutter analyze
-```
-
-Run tests:
-
-```bash
 flutter test
 ```
-
-## 8. Useful troubleshooting
-
-- If dependencies fail: `flutter clean && flutter pub get`
-- If device not detected: re-run `flutter doctor` and fix toolchain issues
-- If API calls fail: confirm `baseUrl`, backend status, and firewall/network access
